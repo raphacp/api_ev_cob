@@ -9,6 +9,8 @@ from resources.prova import Provas, Prova, ProvaCadastro
 from resources.competicao import Competicoes, Competicao, CompeticaoCadastro
 import sqlalchemy
 
+# Dados do banco de dados.
+# Rever na refatoracao
 username = 'root'
 password = 'Cedes010'
 host = 'localhost'
@@ -20,9 +22,9 @@ app = Flask(__name__)
 # Se for usar outro banco é só mudar aqui
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://raphacp:Cedes010@raphacp.mysql.pythonanywhere-services.com/raphacp$app_ev_cob' # Banco Mysql no pythonanywhere
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:Cedes010@127.0.0.1:3306/app_ev_cob1' # Banco local
-app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://{username}:{password}@{host}:{port}/{DB_NAME}" # Banco local
+app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://{username}:{password}@{host}:{port}/{DB_NAME}" # Banco local parametrizado
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-#banco.init_app(app)
+#banco.init_app(app) # Usado aqui qd executado no pythonanywhere
 api = Api(app)
 jwt = JWTManager(app)
 

@@ -3,14 +3,23 @@ from sql_alchemy import banco
 import json
 import datetime
 
+# Serializando o tipo datetime pq o json nao aceita datetime
+# Primeira maneira de fazer
+class DateTimeEncoder(json.JSONEncoder):
+    def default(campo_data):
+        if isinstance(campo_data, datetime.datetime):
+            return (str(campo_data))
+        else:
+            return super().default(campo_data)
+
 # Criacao da tabela competicao no banco de dados
 class CompeticaoModel(banco.Model):
     __tablename__ = 'competicao'
 
     id = banco.Column(banco.Integer, primary_key=True)
     nome = banco.Column(banco.String(150), nullable=False)
-    #data_inicio = banco.Column(banco.DateTime, nullable=False)
-    data_inicio = banco.Column(banco.DateTime)    
+    data_inicio = banco.Column(banco.DateTime, nullable=False)
+    # data_inicio = banco.Column(banco.DateTime)    
     data_final = banco.Column(banco.DateTime)
     sexo = banco.Column(banco.Enum("Masculino", "Feminino"))
     paralimpico = banco.Column(banco.Enum("Sim", "Nao"))
@@ -25,33 +34,18 @@ class CompeticaoModel(banco.Model):
         self.id_prova = id_prova
 
     # @classmethod
+    # Serializando o tipo datetime pq o json nao aceita datetime *** Outra forma de fazer. Depois resolvo qual usar
     def converte_datetime_str(campo):
         if isinstance(campo, datetime.datetime):
             return campo.isoformat()
             # return campo.__str__()
 
     def json(self):
-        # saida = {
-        #     'id': self.id,
-        #     'nome': self.nome,
-        #     'data_inicio': self.data_inicio,
-        #     'data_final': self.data_final,
-        #     'sexo': self.sexo,
-        #     'paralimpico': self.paralimpico,
-        #     'id_prova': self.id_prova
-        #     }
-
-        # saida_formatada_data = json.dumps(saida, default=str)
-        # return saida_formatada_data
-        # if isinstance(self.data_inicio, datetime.datetime):
-        #     return {'message': 'Data inicio é datetime'}
-        # 'data_final': json.dumps(self.data_final, default=CompeticaoModel.converte_datetime_str()),
-
         return{
             'id': self.id,
             'nome': self.nome,
-            'data_inicio': json.dumps(self.data_inicio, default=CompeticaoModel.converte_datetime_str),
-            'data_final': json.dumps(self.data_final, default=CompeticaoModel.converte_datetime_str),
+            'data_inicio': json.dumps(self.data_inicio, default=DateTimeEncoder.default), # Serializando o tipo datetime pq o json nao aceita datetime
+            'data_final': json.dumps(self.data_final, default=CompeticaoModel.converte_datetime_str), # Serializando o tipo datetime pq o json nao aceita datetime
             'sexo': self.sexo,
             'paralimpico': self.paralimpico,
             'id_prova': self.id_prova

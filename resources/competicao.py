@@ -4,9 +4,9 @@ from models.competicao import CompeticaoModel
 
 atributos = reqparse.RequestParser()
 atributos.add_argument('nome', type=str, required=True, help="O campo Nome não pode ser vazio.")
-# atributos.add_argument('data_inicio', type=datetime, required=True, help="O campo data_inicio não pode ser vazio.")
-atributos.add_argument('data_inicio', type=datetime, required=False)
-atributos.add_argument('data_final', type=datetime, required=False)
+atributos.add_argument('data_inicio', type=str, required=True, help="O campo data_inicio não pode ser vazio.")
+# atributos.add_argument('data_inicio', type=str, required=False)
+atributos.add_argument('data_final', type=str, required=False)
 atributos.add_argument('sexo', type=str, required=True, help="O campo sexo não pode ser vazio.")
 atributos.add_argument('paralimpico', type=str, required=True, help="O campo Paralimpico não pode ser vazio.")
 atributos.add_argument('id_prova', type=str, required=True, help="Toda competição precisa estar linkada com uma prova.")
