@@ -8,6 +8,7 @@ class ProvaModel(banco.Model):
     nome = banco.Column(banco.String(150), nullable=False)
     unidade_medida = banco.Column(banco.Enum("s", "m"))
     id_modalidade = banco.Column(banco.Integer, banco.ForeignKey('modalidade.id')) #inserindo chave estrangeira
+    competicoes = banco.relationship('CompeticaoModel') # Criando o relacionamento entre tabelas/classes. Lista de objetos competicao
 
     def __init__(self, nome, unidade_medida, id_modalidade):
         self.nome = nome
@@ -19,7 +20,8 @@ class ProvaModel(banco.Model):
             'id': self.id,
             'nome': self.nome,
             'unidade_medida': self.unidade_medida,
-            'id_modalidade': self.id_modalidade
+            'id_modalidade': self.id_modalidade,
+            'competicoes': [competicao.json() for competicao in self.competicoes]
             }
 
     @classmethod # Decorador
@@ -46,5 +48,9 @@ class ProvaModel(banco.Model):
         self.id_modalidade = id_modalidade
 
     def delete_prova(self):
+        # ************ Verificar se sera necessario, acho q nao ****************
+        # Deletando todas as competicoes associadas a prova
+        # [competicao.delete_competicao() for competicao in self.competicoes]
+        # Deletando a prova
         banco.session.delete(self)
         banco.session.commit()

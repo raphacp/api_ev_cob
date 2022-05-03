@@ -40,9 +40,9 @@ class ModalidadeModel(banco.Model):
         self.nome = nome
 
     def delete_modalidade(self):
-        # ************ Verificar se será necessário ****************
-        # Deletando todos os hoteis associados ao site
-        # [prova.delete_hotel() for prova in self.provas]
+        # ************ Verificar se sera necessario ****************
+        # Deletando todas as provas associadas a modalidade
+        # [prova.delete_prova() for prova in self.provas]
         # Deletando a modalidade
         banco.session.delete(self)
         banco.session.commit()

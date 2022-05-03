@@ -6,6 +6,7 @@ from sql_alchemy import banco
 from resources.atleta import Atletas, Atleta, AtletaCadastro
 from resources.modalidade import Modalidades, Modalidade, ModalidadeCadastro
 from resources.prova import Provas, Prova, ProvaCadastro
+from resources.competicao import Competicoes, Competicao, CompeticaoCadastro
 import sqlalchemy
 
 username = 'root'
@@ -50,6 +51,9 @@ api.add_resource(ModalidadeCadastro, '/modalidades/cadastro')
 api.add_resource(Provas, '/provas')
 api.add_resource(Prova, '/provas/<string:id>')
 api.add_resource(ProvaCadastro, '/provas/cadastro')
+api.add_resource(Competicoes, '/competicoes')
+api.add_resource(Competicao, '/competicoes/<string:id>')
+api.add_resource(CompeticaoCadastro, '/competicoes/cadastro')
 
 if __name__ == '__main__':
     banco.init_app(app)
