@@ -1,8 +1,10 @@
 from flask import Flask
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
+from resources import modalidade
 from sql_alchemy import banco
 from resources.atleta import Atletas, Atleta, AtletaCadastro
+from resources.modalidade import Modalidades, Modalidade, ModalidadeCadastro
 import sqlalchemy
 
 username = 'root'
@@ -39,8 +41,11 @@ def cria_banco():
 
 # Criando os endpoints
 api.add_resource(Atletas, '/atletas')
-api.add_resource(Atleta, '/atleta/<string:id>')
-api.add_resource(AtletaCadastro, '/atleta/cadastro')
+api.add_resource(Atleta, '/atletas/<string:id>')
+api.add_resource(AtletaCadastro, '/atletas/cadastro')
+api.add_resource(Modalidades, '/modalidades')
+api.add_resource(Modalidade, '/modalidades/<string:id>')
+api.add_resource(ModalidadeCadastro, '/modalidades/cadastro')
 
 if __name__ == '__main__':
     banco.init_app(app)

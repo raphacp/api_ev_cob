@@ -48,7 +48,7 @@ class Atleta(Resource):
 
 
 class AtletaCadastro(Resource):
-    # /cadastro
+    # /atleta/cadastro
     def post(self):
         dados = atributos.parse_args()
         if AtletaModel.find_by_name(dados['nome']):
@@ -56,7 +56,6 @@ class AtletaCadastro(Resource):
         atleta = AtletaModel(**dados) # Instanciando o obsjeto
         try:
             atleta.save_atleta()
-            #return {"message": "Atleta '{}'criado com sucesso!".format(dados['nome'])}, 200 # Criado
         except:
             return {"message": "Ocorreu um erro intero ao cadastrar o atleta '{}'.".format(dados['nome'])}, 500
         return atleta.json(), 201 # created
