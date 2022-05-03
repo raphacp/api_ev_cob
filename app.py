@@ -3,12 +3,13 @@ from flask_restful import Api
 from flask_jwt_extended import JWTManager
 from sql_alchemy import banco
 from resources.atleta import Atletas, Atleta, AtletaCadastro
+import sqlalchemy
 
 # Inicializando o App
 app = Flask(__name__)
 # Se for usar outro banco é só mudar aqui
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://raphacp:Cedes010@raphacp.mysql.pythonanywhere-services.com/raphacp$app_ev_cob' # Banco Mysql no pythonanywhere
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:Cedes010@127.0.0.1:3306/app_ev_cob' # Banco local
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:Cedes010@127.0.0.1:3306/app_ev_cob1' # Banco local
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #banco.init_app(app)
 api = Api(app)
@@ -22,6 +23,9 @@ def index():
 # Criacao do banco
 @app.before_first_request # decorador
 def cria_banco():
+    engine = sqlalchemy.create_engine('mysql://root:Cedes010@127.0.0.1:3306/app_ev_cob1') # connect to server
+    engine.execute("CREATE DATABASE IF NOT EXISTS app_ev_cob1") #create db
+    engine.execute("USE app_ev_cob") # select new db
     banco.create_all()
 
 # Criando os endpoints
