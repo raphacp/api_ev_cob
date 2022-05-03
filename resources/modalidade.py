@@ -10,7 +10,7 @@ class Modalidades(Resource):
         return {'modalidades': [modalidade.json() for modalidade in ModalidadeModel.query.all()]}
 
 class Modalidade(Resource):
-    # /modalidade/{id}
+    # /modalidades/{id}
     def get(self, id):
         modalidade = ModalidadeModel.find_modalidade(id)
         if modalidade: # = if modalidade is not null
@@ -29,7 +29,7 @@ class Modalidade(Resource):
         try:
             modalidade.save_modalidade()
         except:
-            return {"message": "Ocorreu um erro intero ao salvar os dados de modalidade '{}'.".format(id)}, 500 # Internal Server Error}
+            return {"message": "Ocorreu um erro interno ao salvar os dados de modalidade '{}'.".format(id)}, 500 # Internal Server Error}
         return modalidade.json(), 201 # created
 
 
@@ -45,7 +45,7 @@ class Modalidade(Resource):
 
 
 class ModalidadeCadastro(Resource):
-    # /modalidade/cadastro
+    # /modalidades/cadastro
     def post(self):
         dados = atributos.parse_args()
         if ModalidadeModel.find_by_name(dados['nome']):

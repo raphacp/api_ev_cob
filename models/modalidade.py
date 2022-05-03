@@ -6,6 +6,7 @@ class ModalidadeModel(banco.Model):
 
     id = banco.Column(banco.Integer, primary_key=True)
     nome = banco.Column(banco.String(150), nullable=False)
+    provas = banco.relationship('ProvaModel') # Criando o relacionamento entre tabelas/classes. Lista de objetos prova
 
     def __init__(self, nome):
         self.nome = nome
@@ -14,6 +15,7 @@ class ModalidadeModel(banco.Model):
         return{
             'id': self.id,
             'nome': self.nome,
+            'provas': [prova.json() for prova in self.provas]
         }
 
     @classmethod # Decorador
@@ -38,5 +40,9 @@ class ModalidadeModel(banco.Model):
         self.nome = nome
 
     def delete_modalidade(self):
+        # ************ Verificar se será necessário ****************
+        # Deletando todos os hoteis associados ao site
+        # [prova.delete_hotel() for prova in self.provas]
+        # Deletando a modalidade
         banco.session.delete(self)
         banco.session.commit()

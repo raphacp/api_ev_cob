@@ -10,7 +10,7 @@ class AtletaModel(banco.Model):
     sexo = banco.Column(banco.Enum("Masculino", "Feminino"))
     paralimpico = banco.Column(banco.Enum("Sim", "Nao"))
 
-    def __init__(self, nome, pais, sexo, paralimpico):
+    def __init__(self, nome, pais, sexo, paralimpico): #não coloca o id aqui pq ele sera criado automaticamente (auto_increment)
         self.nome = nome
         self.pais = pais
         self.sexo = sexo

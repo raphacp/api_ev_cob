@@ -13,7 +13,7 @@ class Atletas(Resource):
         return {'atletas': [atleta.json() for atleta in AtletaModel.query.all()]}
 
 class Atleta(Resource):
-    # /atleta/{id}
+    # /atletas/{id}
     def get(self, id):
         atleta = AtletaModel.find_atleta(id)
         if atleta: # = if atleta is not null
@@ -32,7 +32,7 @@ class Atleta(Resource):
         try:
             atleta.save_atleta()
         except:
-            return {"message": "Ocorreu um erro intero ao salvar os dados do atleta '{}'.".format(id)}, 500 # Internal Server Error}
+            return {"message": "Ocorreu um erro interno ao salvar os dados do atleta '{}'.".format(id)}, 500 # Internal Server Error}
         return atleta.json(), 201 # created
 
 
@@ -48,7 +48,7 @@ class Atleta(Resource):
 
 
 class AtletaCadastro(Resource):
-    # /atleta/cadastro
+    # /atletas/cadastro
     def post(self):
         dados = atributos.parse_args()
         if AtletaModel.find_by_name(dados['nome']):
