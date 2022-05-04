@@ -6,53 +6,54 @@ USE api_ev_cob;
 
 -- Criação da tabela Atleta
 CREATE TABLE Atleta(
-Id INT NOT NULL AUTO_INCREMENT,
-Nome VARCHAR(150) NOT NULL,
-Pais VARCHAR(100) NOT NULL,
-Sexo ENUM("Masculino", "Feminino"),
--- Paralimpico BOOL NOT NULL DEFAULT FALSE, # Fiquei na dúvida qual seria mais apropriado
-Paralimpico ENUM("Sim", "Nao"),
-PRIMARY KEY (Id)
+id INT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(150) NOT NULL,
+pais VARCHAR(100) NOT NULL,
+sexo ENUM("Masculino", "Feminino"),
+paralimpico ENUM("Sim", "Nao"),
+PRIMARY KEY (id)
 );
 
 -- Criação da tabela Modalidade
 CREATE TABLE Modalidade(
-Id INT NOT NULL AUTO_INCREMENT,
-Nome VARCHAR(150) NOT NULL,
-PRIMARY KEY (Id)
+id INT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(150) NOT NULL,
+PRIMARY KEY (id)
 );
 
 -- Criação da tabela Prova
 CREATE TABLE Prova(
-Id INT NOT NULL AUTO_INCREMENT,
-Nome VARCHAR(150) NOT NULL,
-Unidade_Medida ENUM("s", "m"),
-Id_Modalidade INT NOT NULL,
-PRIMARY KEY (Id),
-FOREIGN KEY (Id_Modalidade) REFERENCES Modalidade(Id)
+id INT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(150) NOT NULL,
+unidade_medida ENUM("s", "m"),
+id_modalidade INT NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (id_modalidade) REFERENCES Modalidade(id)
 );
 
 -- Criação da tabela Competicao
 CREATE TABLE Competicao(
-Id INT NOT NULL AUTO_INCREMENT,
-Nome VARCHAR(150) NOT NULL,
-Data_Inicio DATETIME NOT NULL,
-Data_Final DATETIME,
-Tipo ENUM("Masculino", "Feminino"),
-Paralimpico ENUM("Sim", "Nao"),
-Id_Prova INT NOT NULL,
-PRIMARY KEY (Id),
-FOREIGN KEY (Id_Prova) REFERENCES Prova(Id)
+id INT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(150) NOT NULL,
+data_inicio DATETIME NOT NULL,
+data_final DATETIME,
+sexo ENUM("Masculino", "Feminino"),
+paralimpico ENUM("Sim", "Nao"),
+id_prova INT NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (id_prova) REFERENCES Prova(id)
 );
 
 -- Criação da tabela Competicao_Atleta
 CREATE TABLE Competicao_Atleta(
-Id_Competicao INT NOT NULL,
-Id_Atleta INT NOT NULL,
-Resultado_1 FLOAT,
-Resultado_2 FLOAT,
-Resultado_3 FLOAT,
-PRIMARY KEY (Id_Competicao, Id_ATleta),
-FOREIGN KEY (Id_Competicao) REFERENCES Competicao(Id),
-FOREIGN KEY (Id_Atleta) REFERENCES Atleta(Id)
+id INT NOT NULL AUTO_INCREMENT,
+id_competicao INT NOT NULL,
+id_atleta INT NOT NULL,
+resultado_1 FLOAT,
+resultado_2 FLOAT,
+resultado_3 FLOAT,
+PRIMARY KEY (id),
+FOREIGN KEY (id_competicao) REFERENCES Competicao(id),
+FOREIGN KEY (id_atleta) REFERENCES Atleta(id),
+CONSTRAINT competicao_atleta UNIQUE (id_competicao, id_atleta)
 );
