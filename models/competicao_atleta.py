@@ -1,5 +1,8 @@
-from sqlalchemy import UniqueConstraint
+from asyncio.windows_events import NULL
+from numpy import NaN
+from sqlalchemy import null
 from sql_alchemy import banco
+from models.competicao import CompeticaoModel
 
 # Criacao da tabela modalidade no banco de dados
 class CompeticaoAtletaModel(banco.Model):
@@ -40,9 +43,19 @@ class CompeticaoAtletaModel(banco.Model):
 
     @classmethod
     def find_by_competicao_atleta(cls, id_competicao, id_atleta):
-        competicao_atleta = cls.query.filter(cls.id_competicao==id_competicao, cls.id_atleta==id_atleta).first() # SELECT * FROM competicao_atleta WHERE nome = nome LIMIT 1
+        # SELECT * FROM competicao_atleta WHERE id_competicao = id_competicao and id_atleta = id_atleta LIMIT 1
+        competicao_atleta = cls.query.filter(cls.id_competicao==id_competicao, cls.id_atleta==id_atleta).first() 
         if competicao_atleta: # = if competicao_atleta is not null
             return competicao_atleta
+        return None
+        
+    @classmethod
+    def find_competicao_atleta_encerrada(cls, id_competicao):
+        # SELECT * FROM competicao_atleta, competicao WHERE id_competicao = competicao.id and competicao.data_final != null LIMIT 1
+        competicao_encerrada = cls.query.filter(id_competicao == CompeticaoModel.id, CompeticaoModel.data_final != NULL).first()
+        # return {'message': 'Resultado: {}'.format(competicao_encerrada)}
+        if competicao_encerrada: # = if competicao_encerrada is not null
+            return competicao_encerrada
         return None
 
     def save_competicao_atleta(self):

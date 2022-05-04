@@ -1,4 +1,3 @@
-from datetime import datetime
 from flask_restful import Resource, reqparse
 from models.competicao import CompeticaoModel
 

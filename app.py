@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
-from resources import modalidade
 from sql_alchemy import banco
 from resources.atleta import Atletas, Atleta, AtletaCadastro
 from resources.modalidade import Modalidades, Modalidade, ModalidadeCadastro

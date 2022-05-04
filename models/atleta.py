@@ -1,5 +1,4 @@
 from sql_alchemy import banco
-from models.competicao_atleta import CompeticaoAtletaModel
 
 # Criacao da tabela atleta no banco de dados
 class AtletaModel(banco.Model):

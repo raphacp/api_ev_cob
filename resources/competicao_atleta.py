@@ -26,9 +26,15 @@ class CompeticaoAtleta(Resource):
         dados = atributos.parse_args()
         competicao_atleta_encontrada = CompeticaoAtletaModel.find_competicao_atleta(id)
         if competicao_atleta_encontrada:
+            competicao_encerrada = CompeticaoAtletaModel.find_competicao_atleta_encerrada(dados['id_competicao'])
+            
+            if competicao_encerrada:
+                return {"message": "A competição '{}' já está encerrada.".format(dados['id_competicao'])}
+            
             competicao_atleta_encontrada.update_competicao_atleta(**dados)
             competicao_atleta_encontrada.save_competicao_atleta()
             return competicao_atleta_encontrada.json(), 200 # OK
+        
         competicao_atleta = CompeticaoAtletaModel(id, **dados) # Cria a instancia competicao_atleta
         try:
             competicao_atleta.save_competicao_atleta()
@@ -36,6 +42,20 @@ class CompeticaoAtleta(Resource):
             return {"message": "Ocorreu um erro interno ao salvar os dados de competicao_atleta '{}'.".format(id)}, 500 # Internal Server Error}
         return competicao_atleta.json(), 201 # created
 
+
+        # Original
+        # dados = atributos.parse_args()
+        # competicao_atleta_encontrada = CompeticaoAtletaModel.find_competicao_atleta(id)
+        # if competicao_atleta_encontrada:
+        #     competicao_atleta_encontrada.update_competicao_atleta(**dados)
+        #     competicao_atleta_encontrada.save_competicao_atleta()
+        #     return competicao_atleta_encontrada.json(), 200 # OK
+        # competicao_atleta = CompeticaoAtletaModel(id, **dados) # Cria a instancia competicao_atleta
+        # try:
+        #     competicao_atleta.save_competicao_atleta()
+        # except:
+        #     return {"message": "Ocorreu um erro interno ao salvar os dados de competicao_atleta '{}'.".format(id)}, 500 # Internal Server Error}
+        # return competicao_atleta.json(), 201 # created
 
     def delete(self, id):
         competicao_atleta = CompeticaoAtletaModel.find_competicao_atleta(id)

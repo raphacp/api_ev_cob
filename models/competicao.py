@@ -1,3 +1,4 @@
+from sqlalchemy import null
 from sql_alchemy import banco
 import json
 import datetime
@@ -56,6 +57,14 @@ class CompeticaoModel(banco.Model):
         competicao = cls.query.filter_by(id=id).first() # SELECT * FROM competicao WHERE id = id LIMIT 1
         if competicao: # = if competicao is not null
             return competicao
+        return None
+
+    @classmethod # Decorador
+    def find_competicao_encerrada(cls, id):
+        competicao_encerrada = cls.query.filter(id=id).first() # SELECT * FROM competicao WHERE id = id LIMIT 1
+        if competicao_encerrada: # = if competicao_encerrada is not null
+            cls.data_final is not null
+            return competicao_encerrada
         return None
 
     @classmethod
