@@ -1,4 +1,5 @@
 from sql_alchemy import banco
+from models.competicao_atleta import CompeticaoAtletaModel
 
 # Criacao da tabela atleta no banco de dados
 class AtletaModel(banco.Model):
@@ -9,6 +10,7 @@ class AtletaModel(banco.Model):
     pais = banco.Column(banco.String(100), nullable=False)
     sexo = banco.Column(banco.Enum("Masculino", "Feminino"))
     paralimpico = banco.Column(banco.Enum("Sim", "Nao"))
+    competicoes_atletas = banco.relationship('CompeticaoAtletaModel') # Criando o relacionamento entre tabelas/classes. Lista de objetos competicao_atletas
 
     def __init__(self, nome, pais, sexo, paralimpico): #não coloca o id aqui pq ele sera criado automaticamente (auto_increment)
         self.nome = nome
@@ -22,7 +24,8 @@ class AtletaModel(banco.Model):
             'nome': self.nome,
             'pais': self.pais,
             'sexo': self.sexo,
-            'paralimpico': self.paralimpico
+            'paralimpico': self.paralimpico,
+            'competicoes': [competicoes_atletas.json() for competicoes_atletas in self.competicoes_atletas]
         }
 
     @classmethod # Decorador

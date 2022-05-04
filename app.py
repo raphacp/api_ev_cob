@@ -7,6 +7,7 @@ from resources.atleta import Atletas, Atleta, AtletaCadastro
 from resources.modalidade import Modalidades, Modalidade, ModalidadeCadastro
 from resources.prova import Provas, Prova, ProvaCadastro
 from resources.competicao import Competicoes, Competicao, CompeticaoCadastro
+from resources.competicao_atleta import CompeticoesAtletas, CompeticaoAtleta, Competicao_AtletaCadastro
 import sqlalchemy
 
 # Dados do banco de dados.
@@ -56,6 +57,9 @@ api.add_resource(ProvaCadastro, '/provas/cadastro')
 api.add_resource(Competicoes, '/competicoes')
 api.add_resource(Competicao, '/competicoes/<string:id>')
 api.add_resource(CompeticaoCadastro, '/competicoes/cadastro')
+api.add_resource(CompeticoesAtletas, '/competicoes_atletas')
+api.add_resource(CompeticaoAtleta, '/competicoes_atletas/<string:id>')
+api.add_resource(Competicao_AtletaCadastro, '/competicoes_atletas/cadastro')
 
 if __name__ == '__main__':
     banco.init_app(app)

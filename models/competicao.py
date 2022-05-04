@@ -1,4 +1,3 @@
-from email.policy import default
 from sql_alchemy import banco
 import json
 import datetime
@@ -19,11 +18,12 @@ class CompeticaoModel(banco.Model):
     id = banco.Column(banco.Integer, primary_key=True)
     nome = banco.Column(banco.String(150), nullable=False)
     data_inicio = banco.Column(banco.DateTime, nullable=False)
-    # data_inicio = banco.Column(banco.DateTime)    
     data_final = banco.Column(banco.DateTime)
     sexo = banco.Column(banco.Enum("Masculino", "Feminino"))
     paralimpico = banco.Column(banco.Enum("Sim", "Nao"))
     id_prova = banco.Column(banco.Integer, banco.ForeignKey('prova.id')) #inserindo chave estrangeira
+    competicoes_atletas = banco.relationship('CompeticaoAtletaModel') # Criando o relacionamento entre tabelas/classes. Lista de objetos competicao_atletas
+
 
     def __init__(self, nome, data_inicio, data_final, sexo, paralimpico, id_prova):
         self.nome = nome
@@ -48,7 +48,8 @@ class CompeticaoModel(banco.Model):
             'data_final': json.dumps(self.data_final, default=CompeticaoModel.converte_datetime_str), # Serializando o tipo datetime pq o json nao aceita datetime
             'sexo': self.sexo,
             'paralimpico': self.paralimpico,
-            'id_prova': self.id_prova
+            'id_prova': self.id_prova,
+            'competicoes_atletas': [competicao.json() for competicao in self.competicoes_atletas]
             }
 
     @classmethod # Decorador
