@@ -24,8 +24,7 @@ class CompeticaoModel(banco.Model):
     id_prova = banco.Column(banco.Integer, banco.ForeignKey('prova.id')) #inserindo chave estrangeira
     competicoes_atletas = banco.relationship('CompeticaoAtletaModel') # Criando o relacionamento entre tabelas/classes. Lista de objetos competicao_atletas
 
-
-    def __init__(self, nome, data_inicio, data_final, sexo, paralimpico, id_prova):
+    def __init__(self, nome, data_inicio, data_final, sexo, paralimpico, id_prova): # Não coloca o id aqui pq ele sera criado automaticamente (auto_increment)
         self.nome = nome
         self.data_inicio = data_inicio
         self.data_final = data_final
