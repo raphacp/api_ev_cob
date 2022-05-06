@@ -1,6 +1,4 @@
 from asyncio.windows_events import NULL
-from numpy import NaN
-from sqlalchemy import null
 from sql_alchemy import banco
 from models.competicao import CompeticaoModel
 

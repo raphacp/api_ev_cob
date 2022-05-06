@@ -40,6 +40,8 @@ data_final DATETIME,
 sexo ENUM("Masculino", "Feminino"),
 paralimpico ENUM("Sim", "Nao"),
 id_prova INT NOT NULL,
+evento VARCHAR(150) NOT NULL,
+tipo_bateria VARCHAR(150) NOT NULL,
 PRIMARY KEY (id),
 FOREIGN KEY (id_prova) REFERENCES Prova(id)
 );
@@ -56,4 +58,15 @@ PRIMARY KEY (id),
 FOREIGN KEY (id_competicao) REFERENCES Competicao(id),
 FOREIGN KEY (id_atleta) REFERENCES Atleta(id),
 CONSTRAINT competicao_atleta UNIQUE (id_competicao, id_atleta)
+);
+
+-- Criação da tabela Atleta_Prova
+CREATE TABLE Atleta_Prova(
+id INT NOT NULL AUTO_INCREMENT,
+id_atleta INT NOT NULL,
+id_prova INT NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (id_atleta) REFERENCES Atleta(id),
+FOREIGN KEY (id_prova) REFERENCES Prova(id),
+CONSTRAINT atleta_prova UNIQUE (id_atleta, id_prova)
 );
