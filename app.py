@@ -7,6 +7,7 @@ from resources.modalidade import Modalidades, Modalidade, ModalidadeCadastro
 from resources.prova import Provas, Prova, ProvaCadastro
 from resources.competicao import Competicoes, Competicao, CompeticaoCadastro
 from resources.competicao_atleta import CompeticoesAtletas, CompeticaoAtleta, Competicao_AtletaCadastro
+from resources.atleta_prova import AtletasProvas, AtletaProva, AtletaProvaCadastro
 import sqlalchemy
 
 # Dados do banco de dados.
@@ -15,7 +16,7 @@ username = 'root'
 password = 'Cedes010'
 host = 'localhost'
 port = 3306
-DB_NAME = 'app_ev_cob1'
+DB_NAME = 'api_ev_cob1'
 
 # Inicializando o App
 app = Flask(__name__)
@@ -59,6 +60,9 @@ api.add_resource(CompeticaoCadastro, '/competicoes/cadastro')
 api.add_resource(CompeticoesAtletas, '/competicoes_atletas')
 api.add_resource(CompeticaoAtleta, '/competicoes_atletas/<string:id>')
 api.add_resource(Competicao_AtletaCadastro, '/competicoes_atletas/cadastro')
+api.add_resource(AtletasProvas, '/atletas_provas')
+api.add_resource(AtletaProva, '/atletas_provas/<string:id>')
+api.add_resource(AtletaProvaCadastro, '/atletas_provas/cadastro')
 
 if __name__ == '__main__':
     banco.init_app(app)

@@ -23,15 +23,19 @@ class CompeticaoModel(banco.Model):
     sexo = banco.Column(banco.Enum("Masculino", "Feminino"))
     paralimpico = banco.Column(banco.Enum("Sim", "Nao"))
     id_prova = banco.Column(banco.Integer, banco.ForeignKey('prova.id')) #inserindo chave estrangeira
+    evento = banco.Column(banco.String(150), nullable=False)
+    tipo_bateria = banco.Column(banco.String(150), nullable=False)
     competicoes_atletas = banco.relationship('CompeticaoAtletaModel') # Criando o relacionamento entre tabelas/classes. Lista de objetos competicao_atletas
 
-    def __init__(self, nome, data_inicio, data_final, sexo, paralimpico, id_prova): # Não coloca o id aqui pq ele sera criado automaticamente (auto_increment)
+    def __init__(self, nome, data_inicio, data_final, sexo, paralimpico, id_prova, evento, tipo_bateria): # Não coloca o id aqui pq ele sera criado automaticamente (auto_increment)
         self.nome = nome
         self.data_inicio = data_inicio
         self.data_final = data_final
         self.sexo = sexo
         self.paralimpico = paralimpico
         self.id_prova = id_prova
+        self.evento = evento
+        self.tipo_bateria = tipo_bateria
 
     # @classmethod
     # Serializando o tipo datetime pq o json nao aceita datetime *** Outra forma de fazer. Depois resolvo qual usar
@@ -49,6 +53,8 @@ class CompeticaoModel(banco.Model):
             'sexo': self.sexo,
             'paralimpico': self.paralimpico,
             'id_prova': self.id_prova,
+            'evento': self.evento,
+            'tipo_bateria': self.tipo_bateria,
             'competicoes_atletas': [competicao.json() for competicao in self.competicoes_atletas]
             }
 
@@ -78,13 +84,15 @@ class CompeticaoModel(banco.Model):
         banco.session.add(self)
         banco.session.commit()
 
-    def update_competicao(self, nome, data_inicio, data_final, sexo, paralimpico, id_prova):
+    def update_competicao(self, nome, data_inicio, data_final, sexo, paralimpico, id_prova, evento, tipo_bateria):
         self.nome = nome
         self.data_inicio = data_inicio
         self.data_final = data_final
         self.sexo = sexo
         self.paralimpico = paralimpico
         self.id_prova = id_prova
+        self.evento = evento
+        self.tipo_bateria = tipo_bateria
 
     def delete_competicao(self):
         banco.session.delete(self)

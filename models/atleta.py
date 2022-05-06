@@ -10,6 +10,7 @@ class AtletaModel(banco.Model):
     sexo = banco.Column(banco.Enum("Masculino", "Feminino"))
     paralimpico = banco.Column(banco.Enum("Sim", "Nao"))
     competicoes_atletas = banco.relationship('CompeticaoAtletaModel') # Criando o relacionamento entre tabelas/classes. Lista de objetos competicao_atletas
+    atletas_provas = banco.relationship('AtletaProvaModel') # Criando o relacionamento entre tabelas/classes. Lista de objetos atleta_prova
 
     def __init__(self, nome, pais, sexo, paralimpico): # Não coloca o id aqui pq ele sera criado automaticamente (auto_increment)
         self.nome = nome
@@ -24,7 +25,8 @@ class AtletaModel(banco.Model):
             'pais': self.pais,
             'sexo': self.sexo,
             'paralimpico': self.paralimpico,
-            'competicoes': [competicoes_atletas.json() for competicoes_atletas in self.competicoes_atletas]
+            'competicoes': [competicoes_atletas.json() for competicoes_atletas in self.competicoes_atletas],
+            'provas': [atletas_provas.json() for atletas_provas in self.atletas_provas]
         }
 
     @classmethod # Decorador

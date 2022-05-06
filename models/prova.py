@@ -9,6 +9,7 @@ class ProvaModel(banco.Model):
     unidade_medida = banco.Column(banco.Enum("s", "m"))
     id_modalidade = banco.Column(banco.Integer, banco.ForeignKey('modalidade.id')) #inserindo chave estrangeira
     competicoes = banco.relationship('CompeticaoModel') # Criando o relacionamento entre tabelas/classes. Lista de objetos competicao
+    atletas_provas = banco.relationship('AtletaProvaModel') # Criando o relacionamento entre tabelas/classes. Lista de objetos atleta_prova
 
     def __init__(self, nome, unidade_medida, id_modalidade):
         self.nome = nome
@@ -21,7 +22,8 @@ class ProvaModel(banco.Model):
             'nome': self.nome,
             'unidade_medida': self.unidade_medida,
             'id_modalidade': self.id_modalidade,
-            'competicoes': [competicao.json() for competicao in self.competicoes]
+            'competicoes': [competicao.json() for competicao in self.competicoes],
+            'atletas_provas': [atletas_provas.json() for atletas_provas in self.atletas_provas]
             }
 
     @classmethod # Decorador

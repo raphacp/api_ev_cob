@@ -9,6 +9,8 @@ atributos.add_argument('data_final', type=str, required=False)
 atributos.add_argument('sexo', type=str, required=True, help="O campo sexo não pode ser vazio.")
 atributos.add_argument('paralimpico', type=str, required=True, help="O campo Paralimpico não pode ser vazio.")
 atributos.add_argument('id_prova', type=str, required=True, help="Toda competição precisa estar linkada com uma prova.")
+atributos.add_argument('evento', type=str, required=True, help="O campo Evento não pode ser vazio.")
+atributos.add_argument('tipo_bateria', type=str, required=True, help="O campo tipo_bateria não pode ser vazio.")
 
 class Competicoes(Resource):
     # /competicoes
