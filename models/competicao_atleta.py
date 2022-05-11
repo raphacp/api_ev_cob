@@ -5,7 +5,6 @@ from models.competicao import CompeticaoModel
 # Criacao da tabela modalidade no banco de dados
 class CompeticaoAtletaModel(banco.Model):
     __tablename__ = 'competicao_atleta'
-    # __table_args__ = PrimaryKeyConstraint('id_competicao', 'id_atleta')
 
     id = banco.Column(banco.Integer, primary_key=True)
     id_competicao = banco.Column(banco.Integer, banco.ForeignKey('competicao.id'))
@@ -51,7 +50,6 @@ class CompeticaoAtletaModel(banco.Model):
     def find_competicao_atleta_encerrada(cls, id_competicao):
         # SELECT * FROM competicao_atleta, competicao WHERE id_competicao = competicao.id and competicao.data_final != null LIMIT 1
         competicao_encerrada = cls.query.filter(id_competicao == CompeticaoModel.id, CompeticaoModel.data_final != NULL).first()
-        # return {'message': 'Resultado: {}'.format(competicao_encerrada)}
         if competicao_encerrada: # = if competicao_encerrada is not null
             return competicao_encerrada
         return None

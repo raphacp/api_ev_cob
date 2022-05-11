@@ -11,7 +11,7 @@ class DateTimeEncoder(json.JSONEncoder):
         else:
             return super().default(campo_data)
 
-# path /consultas/ranking?evento=Copa 1&id_prova=1&bateria=Final&sexo=Masculino&paralimpico=Nao
+# path /consultas/ranking?id_competicao=6
 #recebe os parametros passados na url
 path_params = reqparse.RequestParser()
 path_params.add_argument('id_competicao', type=int)

@@ -28,12 +28,13 @@ class Atleta(Resource):
             atleta_encontrado.update_atleta(**dados)
             atleta_encontrado.save_atleta()
             return atleta_encontrado.json(), 200 # OK
-        atleta = AtletaModel(id, **dados) # Cria a instancia do atleta
-        try:
-            atleta.save_atleta()
-        except:
-            return {"message": "Ocorreu um erro interno ao salvar os dados do atleta '{}'.".format(id)}, 500 # Internal Server Error}
-        return atleta.json(), 201 # created
+        return {"message": "Atleta '{}' não encontrado.".format(id)}, 404 #status code not found
+        # atleta = AtletaModel(id, **dados) # Cria a instancia do atleta
+        # try:
+        #     atleta.save_atleta()
+        # except:
+        #     return {"message": "Ocorreu um erro interno ao salvar os dados do atleta '{}'.".format(id)}, 500 # Internal Server Error}
+        # return atleta.json(), 201 # created
 
 
     def delete(self, id):

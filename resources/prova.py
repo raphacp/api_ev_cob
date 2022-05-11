@@ -27,12 +27,13 @@ class Prova(Resource):
             prova_encontrada.update_prova(**dados)
             prova_encontrada.save_prova()
             return prova_encontrada.json(), 200 # OK
-        prova = ProvaModel(id, **dados) # Cria a instancia prova
-        try:
-            prova.save_prova()
-        except:
-            return {"message": "Ocorreu um erro intero ao salvar os dados da prova '{}'.".format(id)}, 500 # Internal Server Error}
-        return prova.json(), 201 # created
+        return {"message": "Prova '{}' não encontrada.".format(id)}, 404 #status code not found
+        # prova = ProvaModel(id, **dados) # Cria a instancia prova
+        # try:
+        #     prova.save_prova()
+        # except:
+        #     return {"message": "Ocorreu um erro intero ao salvar os dados da prova '{}'.".format(id)}, 500 # Internal Server Error}
+        # return prova.json(), 201 # created
 
 
     def delete(self, id):

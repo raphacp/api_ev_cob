@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_restful import Api
-from flask_jwt_extended import JWTManager
 from sql_alchemy import banco
 from resources.atleta import Atletas, Atleta, AtletaCadastro
 from resources.modalidade import Modalidades, Modalidade, ModalidadeCadastro
@@ -30,7 +29,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://{username}:{password}@{host}:{
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #banco.init_app(app) # Usado aqui qd executado no pythonanywhere
 api = Api(app)
-jwt = JWTManager(app)
 
 # Exibindo uma mensagem na raiz do site
 @app.route('/')
@@ -40,9 +38,7 @@ def index():
 # Criacao do banco
 @app.before_first_request # decorador
 def cria_banco():
-    # engine = sqlalchemy.create_engine('mysql://root:Cedes010@127.0.0.1:3306/app_ev_cob1') # Conectando ao banco
     engine = sqlalchemy.create_engine(f"mysql://{username}:{password}@{host}:{port}") # Conectando ao banco
-    # engine.execute("CREATE DATABASE IF NOT EXISTS app_ev_cob1") # Criando o banco
     engine.execute(f"CREATE DATABASE IF NOT EXISTS {DB_NAME}") # Criando o banco
     engine.execute(f"USE {DB_NAME}") # Setando o banco
     banco.create_all()

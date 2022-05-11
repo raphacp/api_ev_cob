@@ -4,7 +4,6 @@ from models.competicao import CompeticaoModel
 atributos = reqparse.RequestParser()
 atributos.add_argument('nome', type=str, required=True, help="O campo Nome não pode ser vazio.")
 atributos.add_argument('data_inicio', type=str, required=True, help="O campo data_inicio não pode ser vazio.")
-# atributos.add_argument('data_inicio', type=str, required=False)
 atributos.add_argument('data_final', type=str, required=False)
 atributos.add_argument('sexo', type=str, required=True, help="O campo sexo não pode ser vazio.")
 atributos.add_argument('paralimpico', type=str, required=True, help="O campo Paralimpico não pode ser vazio.")
@@ -33,12 +32,13 @@ class Competicao(Resource):
             competicao_encontrada.update_competicao(**dados)
             competicao_encontrada.save_competicao()
             return competicao_encontrada.json(), 200 # OK
-        competicao = CompeticaoModel(id, **dados) # Cria a instancia competicao
-        try:
-            competicao.save_competicao()
-        except:
-            return {"message": "Ocorreu um erro intero ao salvar os dados da competição '{}'.".format(id)}, 500 # Internal Server Error}
-        return competicao.json(), 201 # created
+        return {"message": "Competição '{}' não encontrada.".format(id)}, 404 #status code not found
+        # competicao = CompeticaoModel(id, **dados) # Cria a instancia competicao
+        # try:
+        #     competicao.save_competicao()
+        # except:
+        #     return {"message": "Ocorreu um erro intero ao salvar os dados da competição '{}'.".format(id)}, 500 # Internal Server Error}
+        # return competicao.json(), 201 # created
 
 
     def delete(self, id):

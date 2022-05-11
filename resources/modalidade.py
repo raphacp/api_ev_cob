@@ -25,12 +25,13 @@ class Modalidade(Resource):
             modalidade_encontrada.update_modalidade(**dados)
             modalidade_encontrada.save_modalidade()
             return modalidade_encontrada.json(), 200 # OK
-        modalidade = ModalidadeModel(id, **dados) # Cria a instancia modalidade
-        try:
-            modalidade.save_modalidade()
-        except:
-            return {"message": "Ocorreu um erro interno ao salvar os dados de modalidade '{}'.".format(id)}, 500 # Internal Server Error}
-        return modalidade.json(), 201 # created
+        return {"message": "Modalidade '{}' não encontrada.".format(id)}, 404 #status code not found
+        # modalidade = ModalidadeModel(id, **dados) # Cria a instancia modalidade
+        # try:
+        #     modalidade.save_modalidade()
+        # except:
+        #     return {"message": "Ocorreu um erro interno ao salvar os dados de modalidade '{}'.".format(id)}, 500 # Internal Server Error}
+        # return modalidade.json(), 201 # created
 
 
     def delete(self, id):

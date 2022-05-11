@@ -1,25 +1,7 @@
 from flask_restful import Resource, reqparse
 import mysql.connector
 
-def normalize_path_params (id = 2,
-                            nome = 'Jermaine Anderson',
-                            pais = 'Espanha',
-                            sexo = 'Masculino',
-                            paralimpico = 'Nao',
-                            limit = 50,
-                            offset = 0, **dados):
-#     if pais:
-        return {
-                'id': id,
-                'nome': nome,
-                'pais': pais,
-                'sexo': sexo,
-                'paralimpico,': paralimpico,
-                'limit': limit,
-                'offset': offset
-                }
-
-# path /competicoes?evento=Copa 1&id_prova=1&bateria=Final&sexo=Masculino&paralimpico=Nao
+# path consultas/atletas?pais=Brasil&sexo=masculino&paralimpico=sim
 #recebe os parametros passados na url
 path_params = reqparse.RequestParser()
 path_params.add_argument('id',  type=int)

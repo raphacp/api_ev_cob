@@ -27,12 +27,13 @@ class AtletaProva(Resource):
             atleta_prova_encontrada.update_atleta_prova(**dados)
             atleta_prova_encontrada.save_atleta_prova()
             return atleta_prova_encontrada.json(), 200 # OK
-        atleta_prova = AtletaProvaModel(id, **dados) # Cria a instancia atleta_prova
-        try:
-            atleta_prova.save_atleta_prova()
-        except:
-            return {"message": "Ocorreu um erro interno ao salvar os dados de atleta_prova '{}'.".format(id)}, 500 # Internal Server Error}
-        return atleta_prova.json(), 201 # created
+        return {"message": "Associação Atleta-Prova '{}' não encontrada.".format(id)}, 404 #status code not found
+        # atleta_prova = AtletaProvaModel(id, **dados) # Cria a instancia atleta_prova
+        # try:
+        #     atleta_prova.save_atleta_prova()
+        # except:
+        #     return {"message": "Ocorreu um erro interno ao salvar os dados de atleta_prova '{}'.".format(id)}, 500 # Internal Server Error}
+        # return atleta_prova.json(), 201 # created
 
 
     def delete(self, id):
