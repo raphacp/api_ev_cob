@@ -68,10 +68,20 @@ class Consulta_Resultados(Resource):
             resultados.append({
             'evento': linha[0] ,
             'id_prova': linha[1],
-            'bateria': linha[8],
+            'prova': linha[2],
+            'unidade_medida': linha[3],
             'id_competicao': linha[4],
+            'competicao': linha[5],
             'sexo': linha[6],
             'paralimpico': linha[7],
+            'bateria': linha[8],
+            'id_atleta': linha[11],
+            'atleta': linha[12],
+            'pais': linha[13],
+            'resultado_1': linha[14],
+            'resultado_2': linha[15],
+            'resultado_3': linha[16],
+            'maior_resultado': linha[17]
             })
 
         return {'resultados': resultados}

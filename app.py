@@ -47,10 +47,11 @@ def cria_banco():
     banco.create_all()
     engine.execute("CREATE OR REPLACE VIEW competicao_prova_atleta AS \
                     SELECT c.evento, c.id_prova, p.nome as prova, p.unidade_medida, c.id as id_competicao, c.nome as competicao, \
-                        c.sexo, c.paralimpico, c.tipo_bateria as bateria, c.data_inicio, c.data_final, a.nome as atleta, a.pais, \
-                        ca.resultado_1, ca.resultado_2, ca.resultado_3 \
+                    c.sexo, c.paralimpico, c.tipo_bateria as bateria, c.data_inicio, c.data_final, a.id as id_atleta, a.nome as atleta, \
+                    a.pais, ca.resultado_1, ca.resultado_2, ca.resultado_3, GREATEST(IFNULL(resultado_1, 0), IFNULL(resultado_2, 0), \
+                    IFNULL(resultado_3, 0)) as maior_resultado \
                     FROM competicao c, prova p, competicao_atleta ca, atleta a \
-                    WHERE c.id_prova = p.id and ca.id_competicao = c.id and ca.id_atleta = a.id") # Criando uma view com os dados da competição, prova e atleta
+                    WHERE c.id_prova = p.id and ca.id_competicao = c.id and ca.id_atleta = a.id;") # Criando uma view com os dados da competição, prova e atleta
     banco.create_all()
 
 # Criando os endpoints
