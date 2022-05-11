@@ -340,6 +340,11 @@ INSERT INTO Competicao_Atleta VALUES(0, 26, 97, 72.23, 70.96, 73.93);
 INSERT INTO Competicao_Atleta VALUES(0, 26, 96, 73.96, 0, 71.82);
 INSERT INTO Competicao_Atleta VALUES(0, 26, 98, 74.58, 0, 74.16);
 
+# Copa 2 Paralimpica - Lançamento de Dardo - Masculino - Qualificação
+INSERT INTO Competicao_Atleta VALUES(0, 27, 84, 71.08, 71.73, 72.72);
+INSERT INTO Competicao_Atleta VALUES(0, 27, 85, 69.27, 68.96, 74.93);
+
+
 # Atletas 100m rasos
 INSERT INTO Atleta_Prova VALUES(0, 1, 1);
 INSERT INTO Atleta_Prova VALUES(0, 2, 1);

@@ -8,6 +8,8 @@ from resources.prova import Provas, Prova, ProvaCadastro
 from resources.competicao import Competicoes, Competicao, CompeticaoCadastro
 from resources.competicao_atleta import CompeticoesAtletas, CompeticaoAtleta, Competicao_AtletaCadastro
 from resources.atleta_prova import AtletasProvas, AtletaProva, AtletaProvaCadastro
+from resources.consulta_resultado import Consulta_Resultados
+from resources.consulta_atleta import Consulta_Atletas
 import sqlalchemy
 
 # Dados do banco de dados.
@@ -16,7 +18,7 @@ username = 'root'
 password = 'Cedes010'
 host = 'localhost'
 port = 3306
-DB_NAME = 'api_ev_cob1'
+DB_NAME = 'api_ev_cob'
 
 # Inicializando o App
 app = Flask(__name__)
@@ -43,6 +45,13 @@ def cria_banco():
     engine.execute(f"CREATE DATABASE IF NOT EXISTS {DB_NAME}") # Criando o banco
     engine.execute(f"USE {DB_NAME}") # Setando o banco
     banco.create_all()
+    engine.execute("CREATE OR REPLACE VIEW competicao_prova_atleta AS \
+                    SELECT c.evento, c.id_prova, p.nome as prova, p.unidade_medida, c.id as id_competicao, c.nome as competicao, \
+                        c.sexo, c.paralimpico, c.tipo_bateria as bateria, c.data_inicio, c.data_final, a.nome as atleta, a.pais, \
+                        ca.resultado_1, ca.resultado_2, ca.resultado_3 \
+                    FROM competicao c, prova p, competicao_atleta ca, atleta a \
+                    WHERE c.id_prova = p.id and ca.id_competicao = c.id and ca.id_atleta = a.id") # Criando uma view com os dados da competição, prova e atleta
+    banco.create_all()
 
 # Criando os endpoints
 api.add_resource(Atletas, '/atletas')
@@ -63,6 +72,8 @@ api.add_resource(Competicao_AtletaCadastro, '/competicoes_atletas/cadastro')
 api.add_resource(AtletasProvas, '/atletas_provas')
 api.add_resource(AtletaProva, '/atletas_provas/<string:id>')
 api.add_resource(AtletaProvaCadastro, '/atletas_provas/cadastro')
+api.add_resource(Consulta_Resultados, '/consultas/resultados')
+api.add_resource(Consulta_Atletas, '/consultas/atletas')
 
 if __name__ == '__main__':
     banco.init_app(app)

@@ -12,6 +12,8 @@ class AtletaModel(banco.Model):
     competicoes_atletas = banco.relationship('CompeticaoAtletaModel') # Criando o relacionamento entre tabelas/classes. Lista de objetos competicao_atletas
     atletas_provas = banco.relationship('AtletaProvaModel') # Criando o relacionamento entre tabelas/classes. Lista de objetos atleta_prova
 
+
+
     def __init__(self, nome, pais, sexo, paralimpico): # Não coloca o id aqui pq ele sera criado automaticamente (auto_increment)
         self.nome = nome
         self.pais = pais
