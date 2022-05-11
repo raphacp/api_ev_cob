@@ -92,7 +92,7 @@ class Consulta_Resultados(Resource):
             'resultado_1': linha[14],
             'resultado_2': linha[15],
             'resultado_3': linha[16],
-            'maior_resultado': linha[17]
+            'melhor_resultado': linha[17]
             })
 
         return {'resultados': resultados}

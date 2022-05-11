@@ -18,6 +18,7 @@ path_params.add_argument('id_competicao', type=int)
 
 
 class Consulta_Ranking(Resource):
+
     # /consultas/ranking
     def get(self):
         connection = mysql.connector.connect(user='root', password='Cedes010', host='localhost', database='api_ev_cob')
@@ -48,29 +49,47 @@ class Consulta_Ranking(Resource):
         # Executa a consulta com ordenação
         cursor.execute(consulta_sql)
         resultado_ordenado = cursor.fetchall()
-
+        posicao = 0
         ranking = []
         for linha in resultado_ordenado:
+            posicao += 1
             ranking.append({
-            'evento': linha[0],
-            'id_prova': linha[1],
-            'prova': linha[2],
-            'unidade_medida': linha[3],
-            'id_competicao': linha[4],
-            'competicao': linha[5],
-            'sexo': linha[6],
-            'paralimpico': linha[7],
-            'bateria': linha[8],
-            'data_inicio': json.dumps(linha[9], default=DateTimeEncoder.default), # Serializando o tipo datetime pq o json nao aceita datetime
-            'data_final': json.dumps(linha[10], default=DateTimeEncoder.default), # Serializando o tipo datetime pq o json nao aceita datetime,
+            'posicao': posicao,
             'id_atleta': linha[11],
-            'atleta': linha[12],
+            'nome': linha[12],
             'pais': linha[13],
+            'melhor_resultado': linha[17],
             'resultado_1': linha[14],
             'resultado_2': linha[15],
             'resultado_3': linha[16],
-            'maior_resultado': linha[17]
+            'sexo': linha[6],
+            'paralimpico': linha[7]
             })
+
+
+        # for linha in resultado_ordenado:
+        #     posicao += 1
+        #     ranking.append({
+        #     'posicao': posicao,
+        #     'evento': linha[0],
+        #     'id_prova': linha[1],
+        #     'prova': linha[2],
+        #     'unidade_medida': linha[3],
+        #     'id_competicao': linha[4],
+        #     'competicao': linha[5],
+        #     'sexo': linha[6],
+        #     'paralimpico': linha[7],
+        #     'bateria': linha[8],
+        #     'data_inicio': json.dumps(linha[9], default=DateTimeEncoder.default), # Serializando o tipo datetime pq o json nao aceita datetime
+        #     'data_final': json.dumps(linha[10], default=DateTimeEncoder.default), # Serializando o tipo datetime pq o json nao aceita datetime,
+        #     'id_atleta': linha[11],
+        #     'atleta': linha[12],
+        #     'pais': linha[13],
+        #     'resultado_1': linha[14],
+        #     'resultado_2': linha[15],
+        #     'resultado_3': linha[16],
+        #     'melhor_resultado': linha[17]
+        #     })
 
         return {'ranking': ranking}
 
