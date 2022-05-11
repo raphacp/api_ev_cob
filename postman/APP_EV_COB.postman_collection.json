@@ -1,7 +1,8 @@
 {
 	"info": {
-		"_postman_id": "a36aa275-eea4-49e8-8e83-087246ae2b8d",
+		"_postman_id": "266b96f4-e3c2-48f8-aa47-3d62b75c3c62",
 		"name": "APP_EV_COB",
+		"description": "Este documento explicita com exemplos, como utilizar os recursos disponíveis no REST API criada para o COB (Comitê Olímpico Brasileiro).  \nEsta API será responsável por marcar e dizer os vencedores das seguintes modalidades:\n\n*   100m rasos\n*   Lançamento de Dardo\n    \n\nAssim como, as formas de se realizar uma requisição e suas possíveis respostas.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -44,7 +45,8 @@
 							"path": [
 								"modalidades"
 							]
-						}
+						},
+						"description": "Requisição para retornar a lista de todas as modalidades cadastradas.\n\nNão é necessário passar nenhum parâmetro.\n\nA resposta será um JSON com todas as modalidades cadastradas e suas relações.\n\n``` json\n{\n    \"modalidades\": [\n        {\n            \"id\": 1,\n            \"nome\": \"Atletismo\",\n            \"provas\": [\n                {\n                    \"id\": 1,\n                    \"nome\": \"100m rasos\",\n                    \"unidade_medida\": \"s\",\n                    \"id_modalidade\": 1,\n                    \"competicoes\": [\n                        {\n                            \"id\": 1,\n                            \"nome\": \"100m rasos - Masculino\",\n                            \"data_inicio\": \"\\\"2022-03-21 10:15:28\\\"\",\n                            \"data_final\": \"\\\"2022-03-21T11:18:48\\\"\",\n                            \"sexo\": \"Masculino\",\n                            \"paralimpico\": \"Nao\",\n                            \"id_prova\": 1,\n                            \"evento\": \"Copa 1\",\n                            \"tipo_bateria\": \"Bateria 1\",\n                            \"competicoes_atletas\": [\n                                {\n                                    \"id\": 1,\n                                    \"id_competicao\": 1,\n                                    \"id_atleta\": 1,\n                                    \"resultado_1\": 12.385,\n                                    \"resultado_2\": null,\n                                    \"resultado_3\": null\n                                },\n                                {\n                                    \"id\": 2,\n                                    \"id_competicao\": 1,\n                                    \"id_atleta\": 2,\n                                    \"resultado_1\": 12.485,\n                                    \"resultado_2\": null,\n                                    \"resultado_3\": null\n                                }\n\n                            ]\n                        },\n                        {\n                            \"id\": 2,\n                            \"nome\": \"100m rasos - Masculino\",\n                            \"data_inicio\": \"\\\"2022-03-21 11:20:28\\\"\",\n                            \"data_final\": \"\\\"2022-03-21T12:30:48\\\"\",\n                            \"sexo\": \"Masculino\",\n                            \"paralimpico\": \"Nao\",\n                            \"id_prova\": 1,\n                            \"evento\": \"Copa 1\",\n                            \"tipo_bateria\": \"Bateria 2\",\n                            \"competicoes_atletas\": [\n                                {\n                                    \"id\": 6,\n                                    \"id_competicao\": 2,\n                                    \"id_atleta\": 6,\n                                    \"resultado_1\": 12.38,\n                                    \"resultado_2\": null,\n                                    \"resultado_3\": null\n                                },\n                                {\n                                    \"id\": 7,\n                                    \"id_competicao\": 2,\n                                    \"id_atleta\": 7,\n                                    \"resultado_1\": 12.48,\n                                    \"resultado_2\": null,\n                                    \"resultado_3\": null\n                                }\n                            ]\n                        },\n                        {\n                            \"id\": 3,\n                            \"nome\": \"100m rasos - Masculino\",\n                            \"data_inicio\": \"\\\"2022-03-21 13:20:28\\\"\",\n                            \"data_final\": \"\\\"2022-03-21T14:30:48\\\"\",\n                            \"sexo\": \"Masculino\",\n                            \"paralimpico\": \"Nao\",\n                            \"id_prova\": 1,\n                            \"evento\": \"Copa 1\",\n                            \"tipo_bateria\": \"Bateria 3\",\n                            \"competicoes_atletas\": [\n                                {\n                                    \"id\": 11,\n                                    \"id_competicao\": 3,\n                                    \"id_atleta\": 11,\n                                    \"resultado_1\": 12.345,\n                                    \"resultado_2\": null,\n                                    \"resultado_3\": null\n                                },\n                                {\n                                    \"id\": 12,\n                                    \"id_competicao\": 3,\n                                    \"id_atleta\": 12,\n                                    \"resultado_1\": 12.445,\n                                    \"resultado_2\": null,\n                                    \"resultado_3\": null\n                                }\n                            ]\n                        }                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}\n\n```"
 					},
 					"response": []
 				},
@@ -85,7 +87,8 @@
 								"modalidades",
 								"1"
 							]
-						}
+						},
+						"description": "Requisição para retornar uma modalidade específica.\n\nÉ obrigatório passar o id da modalidade como parâmetro.\n\nA resposta será um JSON com os dados da modalidade e suas relações.\n\n``` json\n{\n    \"id\": 1,\n    \"nome\": \"Atletismo\",\n    \"provas\": [\n        {\n            \"id\": 1,\n            \"nome\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_modalidade\": 1,\n            \"competicoes\": [\n                {\n                    \"id\": 1,\n                    \"nome\": \"100m rasos - Masculino\",\n                    \"data_inicio\": \"\\\"2022-03-21 10:15:28\\\"\",\n                    \"data_final\": \"\\\"2022-03-21T11:18:48\\\"\",\n                    \"sexo\": \"Masculino\",\n                    \"paralimpico\": \"Nao\",\n                    \"id_prova\": 1,\n                    \"evento\": \"Copa 1\",\n                    \"tipo_bateria\": \"Bateria 1\",\n                    \"competicoes_atletas\": [\n                        {\n                            \"id\": 1,\n                            \"id_competicao\": 1,\n                            \"id_atleta\": 1,\n                            \"resultado_1\": 12.385,\n                            \"resultado_2\": null,\n                            \"resultado_3\": null\n                        },\n                        {\n                            \"id\": 2,\n                            \"id_competicao\": 1,\n                            \"id_atleta\": 2,\n                            \"resultado_1\": 12.485,\n                            \"resultado_2\": null,\n                            \"resultado_3\": null\n                        }\n                    ]\n                },\n                {\n                    \"id\": 2,\n                    \"nome\": \"100m rasos - Masculino\",\n                    \"data_inicio\": \"\\\"2022-03-21 11:20:28\\\"\",\n                    \"data_final\": \"\\\"2022-03-21T12:30:48\\\"\",\n                    \"sexo\": \"Masculino\",\n                    \"paralimpico\": \"Nao\",\n                    \"id_prova\": 1,\n                    \"evento\": \"Copa 1\",\n                    \"tipo_bateria\": \"Bateria 2\",\n                    \"competicoes_atletas\": [\n                        {\n                            \"id\": 6,\n                            \"id_competicao\": 2,\n                            \"id_atleta\": 6,\n                            \"resultado_1\": 12.38,\n                            \"resultado_2\": null,\n                            \"resultado_3\": null\n                        },\n                        {\n                            \"id\": 7,\n                            \"id_competicao\": 2,\n                            \"id_atleta\": 7,\n                            \"resultado_1\": 12.48,\n                            \"resultado_2\": null,\n                            \"resultado_3\": null\n                        }\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}\n\n```\n\nCaso a modalidade solicitada não exista será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"Modalidade '2' não encontrada.\"\n}\n\n```"
 					},
 					"response": []
 				},
@@ -123,7 +126,8 @@
 								"modalidades",
 								"cadastro"
 							]
-						}
+						},
+						"description": "Requisição para cadastrar uma modalidade.\n\nÉ obrigatório passar o nome da modalidade no corpo da requisição.\n\nO campo nome é do tipo: String(150).\n\nA resposta será um JSON com os dados da modalidade e suas relações.\n\n``` json\n{\n    \"id\": 2,\n    \"nome\": \"Natação 4\",\n    \"provas\": []\n}\n\n```\n\nCaso já exista uma modalidade com o mesmo nome será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"A modalidade 'Natação 4' já existe.\"\n}\n\n```"
 					},
 					"response": []
 				},
@@ -161,7 +165,8 @@
 								"modalidades",
 								"4"
 							]
-						}
+						},
+						"description": "Requisição para alterar uma modalidade.\n\nÉ obrigatório passar o id da modalidade como parâmetro.\n\nA resposta será um JSON com os dados da modalidade e suas relações.\n\n``` json\n{\n    \"id\": 2,\n    \"nome\": \"Natação 40\",\n    \"provas\": []\n}\n\n```\n\nCaso a modalidade não exista será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"Modalidade '3' não encontrada.\"\n}\n\n```"
 					},
 					"response": []
 				},
@@ -199,11 +204,13 @@
 								"modalidades",
 								"4"
 							]
-						}
+						},
+						"description": "Requisição para deletar uma modalidade.\n\nÉ obrigatório passar o id da modalidade como parâmetro.\n\nA resposta será um JSON informando que a modalidade foi deletada.\n\n``` json\n{\n    \"message\": \"Modalidade '3' deletada.\"\n}\n\n```\n\nCaso a modalidade não exista será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"Modalidade '4' não encontrada.\"\n}\n\n```"
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Requisições CRUD para as modalidades.\n\nEx: Atletismo, Natação"
 		},
 		{
 			"name": "Atleta",
@@ -244,7 +251,8 @@
 							"path": [
 								"atletas"
 							]
-						}
+						},
+						"description": "Requisição para retornar a lista de todos os atletas cadastrados.  \nNão é necessário passar nenhum parâmetro.  \nA resposta será um JSON com todos os atletas cadastrados e suas relações.\n\n``` json\n{\n    \"atletas\": [\n        {\n            \"id\": 1,\n            \"nome\": \"Amal Leblanc\",\n            \"pais\": \"Brasil\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\",\n            \"competicoes\": [\n                {\n                    \"id\": 1,\n                    \"id_competicao\": 1,\n                    \"id_atleta\": 1,\n                    \"resultado_1\": 12.385,\n                    \"resultado_2\": null,\n                    \"resultado_3\": null\n                },\n                {\n                    \"id\": 24,\n                    \"id_competicao\": 5,\n                    \"id_atleta\": 1,\n                    \"resultado_1\": 11.545,\n                    \"resultado_2\": null,\n                    \"resultado_3\": null\n                }\n            ],\n            \"provas\": [\n                {\n                    \"id\": 1,\n                    \"id_atleta\": 1,\n                    \"id_prova\": 1\n                }\n            ]\n        }\n    }\n}\n\n```"
 					},
 					"response": []
 				},
@@ -273,7 +281,8 @@
 								"atletas",
 								"1"
 							]
-						}
+						},
+						"description": "Requisição para retornar um atleta específico.  \nÉ obrigatório passar o id do atleta como parâmetro.  \nA resposta será um JSON com os dados do atleta e suas relações.\n\n``` json\n{\n    \"id\": 1,\n    \"nome\": \"Amal Leblanc\",\n    \"pais\": \"Brasil\",\n    \"sexo\": \"Masculino\",\n    \"paralimpico\": \"Nao\",\n    \"competicoes\": [\n        {\n            \"id\": 1,\n            \"id_competicao\": 1,\n            \"id_atleta\": 1,\n            \"resultado_1\": 12.385,\n            \"resultado_2\": null,\n            \"resultado_3\": null\n        },\n        {\n            \"id\": 24,\n            \"id_competicao\": 5,\n            \"id_atleta\": 1,\n            \"resultado_1\": 11.545,\n            \"resultado_2\": null,\n            \"resultado_3\": null\n        }\n    ],\n    \"provas\": [\n        {\n            \"id\": 1,\n            \"id_atleta\": 1,\n            \"id_prova\": 1\n        }\n    ]\n}\n\n```\n\nCaso o atleta solicitado não exista será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"Atleta '101' não encontrado.\"\n}\n\n```"
 					},
 					"response": []
 				},
@@ -290,7 +299,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Silvia Nunes 3\",\r\n    \"pais\": \"Brasil\",\r\n    \"sexo\": \"Feminino\",\r\n    \"paralimpico\": \"Sim\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Raphael Nunes\",\r\n    \"pais\": \"Brasil\",\r\n    \"sexo\": \"Masculino\",\r\n    \"paralimpico\": \"Sim\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -311,50 +320,13 @@
 								"atletas",
 								"cadastro"
 							]
-						}
+						},
+						"description": "Requisição para cadastrar um atleta.  \nOs campos a serem informados são: *Todos os campos são obrigatórios\n\nnome = String(150)  \npais = String(100)  \nsexo = Enum(\"Masculino\", \"Feminino\")  \nparalimpico = Enum(\"Sim\", \"Nao\")\n\nA resposta será um JSON com os dados do atleta e suas relações.\n\n``` json\n{\n    \"id\": 101,\n    \"nome\": \"Raphael Nunes\",\n    \"pais\": \"Brasil\",\n    \"sexo\": \"Masculino\",\n    \"paralimpico\": \"Sim\",\n    \"competicoes\": [],\n    \"provas\": []\n}\n\n```\n\nCaso já exista um atleta com o mesmo nome será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"O atleta 'Raphael Nunes' já existe.\"\n}\n\n```"
 					},
 					"response": []
 				},
 				{
 					"name": "atletas/{id}",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Raphael Prado Put\",\r\n    \"pais\": \"Brasil\",\r\n    \"sexo\": \"Masculino\",\r\n    \"paralimpico\": \"Nao\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:5000/atletas/1",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "5000",
-							"path": [
-								"atletas",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "atletas/{id} Copy",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -374,7 +346,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/atletas/1",
+							"raw": "http://127.0.0.1:5000/atletas/101",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -385,9 +357,10 @@
 							"port": "5000",
 							"path": [
 								"atletas",
-								"1"
+								"101"
 							]
-						}
+						},
+						"description": "Requisição para alterar os dados de um atleta.  \nÉ obrigatório passar o id do atleta como parâmetro e os seguintes dados no corpo:\n\nnome = String(150)  \npais = String(100)  \nsexo = Enum(\"Masculino\", \"Feminino\")  \nparalimpico = Enum(\"Sim\", \"Nao\")\n\nA resposta será um JSON com os dados do atleta e suas relações.\n\n``` json\n{\n    \"id\": 101,\n    \"nome\": \"Raphael Prado\",\n    \"pais\": \"Brasil\",\n    \"sexo\": \"Masculino\",\n    \"paralimpico\": \"Nao\",\n    \"competicoes\": [],\n    \"provas\": []\n}\n\n```\n\nCaso um campo esteja faltando será retornada uma mensagem.\n\n``` json\n{\n    \"message\": {\n        \"sexo\": \"O campo sexo não pode ser vazio.\"\n    }\n}\n\n```\n\nCaso o atleta não exista será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"Atleta '103' não encontrado.\"\n}\n\n```"
 					},
 					"response": []
 				},
@@ -425,11 +398,13 @@
 								"atletas",
 								"5"
 							]
-						}
+						},
+						"description": "Requisição para deletar um atleta.  \nÉ obrigatório passar o id do atleta como parâmetro.  \nA resposta será um JSON informando que o atleta foi deletado.\n\n``` json\n{\n    \"message\": \"Atleta '101' deletado.\"\n}\n\n```\n\nCaso o atleta não exista será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"Atleta '101' não encontrado.\"\n}\n\n```"
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Requisições CRUD para os atletas."
 		},
 		{
 			"name": "Prova",
@@ -470,7 +445,8 @@
 							"path": [
 								"provas"
 							]
-						}
+						},
+						"description": "Requisição para retornar a lista de todas as provas cadastradas.  \nNão é necessário passar nenhum parâmetro.  \nA resposta será um JSON com todas as provas cadastradas e suas relações.\n\n``` json\n{\n    \"provas\": [\n        {\n            \"id\": 1,\n            \"nome\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_modalidade\": 1,\n            \"competicoes\": [\n                {\n                    \"id\": 1,\n                    \"nome\": \"100m rasos - Masculino\",\n                    \"data_inicio\": \"\\\"2022-03-21 10:15:28\\\"\",\n                    \"data_final\": \"\\\"2022-03-21T11:18:48\\\"\",\n                    \"sexo\": \"Masculino\",\n                    \"paralimpico\": \"Nao\",\n                    \"id_prova\": 1,\n                    \"evento\": \"Copa 1\",\n                    \"tipo_bateria\": \"Bateria 1\",\n                    \"competicoes_atletas\": [\n                        {\n                            \"id\": 1,\n                            \"id_competicao\": 1,\n                            \"id_atleta\": 1,\n                            \"resultado_1\": 12.385,\n                            \"resultado_2\": null,\n                            \"resultado_3\": null\n                        },\n                        {\n                            \"id\": 2,\n                            \"id_competicao\": 1,\n                            \"id_atleta\": 2,\n                            \"resultado_1\": 12.485,\n                            \"resultado_2\": null,\n                            \"resultado_3\": null\n                        }\n                    ]\n                },\n                {\n                    \"id\": 2,\n                    \"nome\": \"100m rasos - Masculino\",\n                    \"data_inicio\": \"\\\"2022-03-21 11:20:28\\\"\",\n                    \"data_final\": \"\\\"2022-03-21T12:30:48\\\"\",\n                    \"sexo\": \"Masculino\",\n                    \"paralimpico\": \"Nao\",\n                    \"id_prova\": 1,\n                    \"evento\": \"Copa 1\",\n                    \"tipo_bateria\": \"Bateria 2\",\n                    \"competicoes_atletas\": [\n                        {\n                            \"id\": 6,\n                            \"id_competicao\": 2,\n                            \"id_atleta\": 6,\n                            \"resultado_1\": 12.38,\n                            \"resultado_2\": null,\n                            \"resultado_3\": null\n                        },\n                        {\n                            \"id\": 7,\n                            \"id_competicao\": 2,\n                            \"id_atleta\": 7,\n                            \"resultado_1\": 12.48,\n                            \"resultado_2\": null,\n                            \"resultado_3\": null\n                        }\n                    ]\n                },\n            ],\n            \"atletas_provas\": [\n                {\n                    \"id\": 1,\n                    \"id_atleta\": 1,\n                    \"id_prova\": 1\n                },\n                {\n                    \"id\": 2,\n                    \"id_atleta\": 2,\n                    \"id_prova\": 1\n                },\n                {\n                    \"id\": 3,\n                    \"id_atleta\": 3,\n                    \"id_prova\": 1\n                },\n                {\n                    \"id\": 4,\n                    \"id_atleta\": 4,\n                    \"id_prova\": 1\n                }\n            ]\n        }\n    ]\n}\n\n```"
 					},
 					"response": []
 				},
@@ -486,7 +462,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:5000/provas/3",
+							"raw": "http://127.0.0.1:5000/provas/2",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -497,9 +473,10 @@
 							"port": "5000",
 							"path": [
 								"provas",
-								"3"
+								"2"
 							]
-						}
+						},
+						"description": "Requisição para retornar uma prova específica.  \nÉ obrigatório passar o id da prova como parâmetro.  \nA resposta será um JSON com os dados da prova e suas relações.\n\n``` json\n{\n    \"id\": 2,\n    \"nome\": \"Lançamento de Dardo\",\n    \"unidade_medida\": \"m\",\n    \"id_modalidade\": 1,\n    \"competicoes\": [\n        {\n            \"id\": 19,\n            \"nome\": \"Lançamento de Dardo - Masculino\",\n            \"data_inicio\": \"\\\"2022-03-23 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-23T18:18:48\\\"\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\",\n            \"id_prova\": 2,\n            \"evento\": \"Copa 1\",\n            \"tipo_bateria\": \"Qualificação\",\n            \"competicoes_atletas\": [\n                {\n                    \"id\": 91,\n                    \"id_competicao\": 19,\n                    \"id_atleta\": 16,\n                    \"resultado_1\": 81.08,\n                    \"resultado_2\": 81.73,\n                    \"resultado_3\": 82.72\n                },\n                {\n                    \"id\": 92,\n                    \"id_competicao\": 19,\n                    \"id_atleta\": 17,\n                    \"resultado_1\": 79.27,\n                    \"resultado_2\": 78.96,\n                    \"resultado_3\": 84.93\n                }\n            ]\n        },\n        {\n            \"id\": 20,\n            \"nome\": \"Lançamento de Dardo - Masculino\",\n            \"data_inicio\": \"\\\"2022-03-25 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-25T18:18:48\\\"\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\",\n            \"id_prova\": 2,\n            \"evento\": \"Copa 1\",\n            \"tipo_bateria\": \"Final\",\n            \"competicoes_atletas\": [\n                {\n                    \"id\": 103,\n                    \"id_competicao\": 20,\n                    \"id_atleta\": 16,\n                    \"resultado_1\": 0.0,\n                    \"resultado_2\": 85.44,\n                    \"resultado_3\": 84.98\n                },\n                {\n                    \"id\": 101,\n                    \"id_competicao\": 20,\n                    \"id_atleta\": 17,\n                    \"resultado_1\": 83.98,\n                    \"resultado_2\": 82.86,\n                    \"resultado_3\": 86.67\n                }\n            ]\n        },\n        {\n            \"id\": 29,\n            \"nome\": \"Lançamento de Dardo - Masculino\",\n            \"data_inicio\": \"\\\"2022-04-04 10:15:28\\\"\",\n            \"data_final\": \"null\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\",\n            \"id_prova\": 2,\n            \"evento\": \"Copa 2\",\n            \"tipo_bateria\": \"Qualificação\",\n            \"competicoes_atletas\": []\n        }\n    ],\n    \"atletas_provas\": [\n        {\n            \"id\": 51,\n            \"id_atleta\": 16,\n            \"id_prova\": 2\n        },\n        {\n            \"id\": 52,\n            \"id_atleta\": 17,\n            \"id_prova\": 2\n        }\n    ]\n}\n\n```\n\nCaso a prova solicitada não exista será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"Prova '3' não encontrada.\"\n}\n\n```"
 					},
 					"response": []
 				},
@@ -516,7 +493,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Lançamento de Dardo\",\r\n    \"unidade_medida\": \"m\",\r\n    \"id_modalidade\": \"1\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Lançamento de Disco\",\r\n    \"unidade_medida\": \"m\",\r\n    \"id_modalidade\": \"1\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -537,7 +514,8 @@
 								"provas",
 								"cadastro"
 							]
-						}
+						},
+						"description": "Requisição para cadastrar uma prova.  \nOs campos a serem informados são: *Todos os campos são obrigatórios\n\nnome = String(150)  \nunidade_medida = Enum(\"s\", \"m\"))  \nid_modalidade = Integer\n\nA resposta será um JSON com os dados da prova e suas relações.\n\n``` json\n{\n    \"id\": 3,\n    \"nome\": \"Lançamento de Disco\",\n    \"unidade_medida\": \"m\",\n    \"id_modalidade\": 1,\n    \"competicoes\": [],\n    \"atletas_provas\": []\n}\n\n```\n\nCaso já exista uma modalidade com o mesmo nome será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"A prova 'Lançamento de Dardo' já existe.\"\n}\n\n```"
 					},
 					"response": []
 				},
@@ -554,7 +532,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"100m rasos\",\r\n    \"unidade_medida\": \"s\",\r\n    \"id_modalidade\": \"1\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Lançamento de Disco Teste\",\r\n    \"unidade_medida\": \"m\",\r\n    \"id_modalidade\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -562,7 +540,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/provas/1",
+							"raw": "http://127.0.0.1:5000/provas/3",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -573,9 +551,10 @@
 							"port": "5000",
 							"path": [
 								"provas",
-								"1"
+								"3"
 							]
-						}
+						},
+						"description": "Requisição para alterar uma prova.  \nÉ obrigatório passar o id da prova como parâmetro e os seguintes dados no corpo: *Todos os campos são obrigatórios\n\nnome = String(150)  \nunidade_medida = Enum(\"s\", \"m\")  \nid_modalidade = Integer\n\nA resposta será um JSON com os dados da prova e suas relações.\n\n``` json\n{\n     \"id\": 3,\n    \"nome\": \"Lançamento de Disco Teste\",\n    \"unidade_medida\": \"m\",\n    \"id_modalidade\": 1,\n    \"competicoes\": [],\n    \"atletas_provas\": []\n}\n\n```\n\nCaso a prova não exista será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"Prova '35' não encontrada.\"\n}\n\n```"
 					},
 					"response": []
 				},
@@ -613,11 +592,13 @@
 								"provas",
 								"3"
 							]
-						}
+						},
+						"description": "Requisição para deletar uma prova.  \nÉ obrigatório passar o id da prova como parâmetro.  \nA resposta será um JSON informando que a prova foi deletada.\n\n``` json\n{\n    \"message\": \"Prova '3' deletada.\"\n}\n\n```\n\nCaso a prova não exista será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"Prova '3' não encontrada.\"\n}\n\n```"
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Requisições CRUD para as provas.\n\nEx: 100 metros Rasos, Lançamento de Dardo"
 		},
 		{
 			"name": "Competicao",
@@ -658,7 +639,8 @@
 							"path": [
 								"competicoes"
 							]
-						}
+						},
+						"description": "Requisição para retornar a lista de todas as competições.  \nNão é necessário passar nenhum parâmetro.  \nA resposta será um JSON com todas as competições cadastradas e suas relações.\n\n``` json\n{\n    \"competicoes\": [\n        {\n            \"id\": 1,\n            \"nome\": \"100m rasos - Masculino\",\n            \"data_inicio\": \"\\\"2022-03-21 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-21T11:18:48\\\"\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\",\n            \"id_prova\": 1,\n            \"evento\": \"Copa 1\",\n            \"tipo_bateria\": \"Bateria 1\",\n            \"competicoes_atletas\": [\n                {\n                    \"id\": 1,\n                    \"id_competicao\": 1,\n                    \"id_atleta\": 1,\n                    \"resultado_1\": 12.385,\n                    \"resultado_2\": null,\n                    \"resultado_3\": null\n                },\n                {\n                    \"id\": 2,\n                    \"id_competicao\": 1,\n                    \"id_atleta\": 2,\n                    \"resultado_1\": 12.485,\n                    \"resultado_2\": null,\n                    \"resultado_3\": null\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"nome\": \"100m rasos - Masculino\",\n            \"data_inicio\": \"\\\"2022-03-21 11:20:28\\\"\",\n            \"data_final\": \"\\\"2022-03-21T12:30:48\\\"\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\",\n            \"id_prova\": 1,\n            \"evento\": \"Copa 1\",\n            \"tipo_bateria\": \"Bateria 2\",\n            \"competicoes_atletas\": [\n                {\n                    \"id\": 6,\n                    \"id_competicao\": 2,\n                    \"id_atleta\": 6,\n                    \"resultado_1\": 12.38,\n                    \"resultado_2\": null,\n                    \"resultado_3\": null\n                },\n                {\n                    \"id\": 7,\n                    \"id_competicao\": 2,\n                    \"id_atleta\": 7,\n                    \"resultado_1\": 12.48,\n                    \"resultado_2\": null,\n                    \"resultado_3\": null\n                }\n\t\t\t}\n        }\n    ]\n}\n\n```"
 					},
 					"response": []
 				},
@@ -687,7 +669,8 @@
 								"competicoes",
 								"35"
 							]
-						}
+						},
+						"description": "Requisição para retornar uma competição específica.  \nÉ obrigatório passar o id da competição como parâmetro.  \nA resposta será um JSON com os dados da competição e suas relações.\n\n``` json\n{\n    \"id\": 1,\n    \"nome\": \"100m rasos - Masculino\",\n    \"data_inicio\": \"\\\"2022-03-21 10:15:28\\\"\",\n    \"data_final\": \"\\\"2022-03-21T11:18:48\\\"\",\n    \"sexo\": \"Masculino\",\n    \"paralimpico\": \"Nao\",\n    \"id_prova\": 1,\n    \"evento\": \"Copa 1\",\n    \"tipo_bateria\": \"Bateria 1\",\n    \"competicoes_atletas\": [\n        {\n            \"id\": 1,\n            \"id_competicao\": 1,\n            \"id_atleta\": 1,\n            \"resultado_1\": 12.385,\n            \"resultado_2\": null,\n            \"resultado_3\": null\n        },\n        {\n            \"id\": 2,\n            \"id_competicao\": 1,\n            \"id_atleta\": 2,\n            \"resultado_1\": 12.485,\n            \"resultado_2\": null,\n            \"resultado_3\": null\n        },\n        {\n            \"id\": 3,\n            \"id_competicao\": 1,\n            \"id_atleta\": 3,\n            \"resultado_1\": 12.685,\n            \"resultado_2\": null,\n            \"resultado_3\": null\n        },\n        {\n            \"id\": 4,\n            \"id_competicao\": 1,\n            \"id_atleta\": 4,\n            \"resultado_1\": 11.785,\n            \"resultado_2\": null,\n            \"resultado_3\": null\n        },\n        {\n            \"id\": 5,\n            \"id_competicao\": 1,\n            \"id_atleta\": 5,\n            \"resultado_1\": 11.285,\n            \"resultado_2\": null,\n            \"resultado_3\": null\n        }\n    ]\n}\n\n```\n\nCaso a modalidade solicitada não exista será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"Competição '35' não encontrada.\"\n}\n\n```"
 					},
 					"response": []
 				},
@@ -704,7 +687,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Teste DateTime 2\",\r\n    \"data_inicio\": \"2022-05-03T18:50:41.985142\",\r\n    \"data_final\": \"2022-05-03T18:50:41.985142\",\r\n    \"sexo\": \"Masculino\",\r\n    \"paralimpico\": \"Nao\",\r\n    \"id_prova\": \"1\",\r\n    \"evento\": \"Copa 10\",\r\n    \"tipo_bateria\": \"Bateria 10\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Natação 50m livres\",\r\n    \"data_inicio\": \"2022-05-03T18:50:41.985142\",\r\n    \"data_final\": \"2022-05-03T18:50:41.985142\",\r\n    \"sexo\": \"Masculino\",\r\n    \"paralimpico\": \"Nao\",\r\n    \"id_prova\": \"2\",\r\n    \"evento\": \"Copa 10\",\r\n    \"tipo_bateria\": \"Bateria 10\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -725,7 +708,8 @@
 								"competicoes",
 								"cadastro"
 							]
-						}
+						},
+						"description": "Requisição para cadastrar uma competição.  \nOs campos a serem informados são: * Somente o campo **data_final** não é obrigatório\n\nnome = String(150)  \ndata_inicio = DateTime  \n**data_final = DateTime)**  \nsexo = Enum(\"Masculino\", \"Feminino\"))  \nparalimpico = Enum(\"Sim\", \"Nao\"))  \nid_prova = Integer  \nevento = String(150)  \ntipo_bateria = String(150)\n\nA resposta será um JSON com os dados da competição e suas relações.\n\n``` json\n{\n    \"id\": 35,\n    \"nome\": \"Natação 50m livres\",\n    \"data_inicio\": \"\\\"2022-05-03 18:50:42\\\"\",\n    \"data_final\": \"\\\"2022-05-03T18:50:42\\\"\",\n    \"sexo\": \"Masculino\",\n    \"paralimpico\": \"Nao\",\n    \"id_prova\": 2,\n    \"evento\": \"Copa 10\",\n    \"tipo_bateria\": \"Bateria 10\",\n    \"competicoes_atletas\": []\n}\n\n```\n\nCaso já exista uma competição com o mesmo nome será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"A competição 'Natação 50m livres' já existe.\"\n}\n\n```"
 					},
 					"response": []
 				},
@@ -742,7 +726,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Teste DateTime 2222\",\r\n    \"data_inicio\": \"2022-05-03T18:50:41.985142\",\r\n    \"data_final\": \"2022-05-03T18:50:41.985142\",\r\n    \"sexo\": \"Masculino\",\r\n    \"paralimpico\": \"Nao\",\r\n    \"id_prova\": \"1\",\r\n    \"evento\": \"Copa 105\",\r\n    \"tipo_bateria\": \"Bateria 15\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Natação 400m livres\",\r\n    \"data_inicio\": \"2022-05-03T18:50:41.985142\",\r\n    \"data_final\": \"2022-05-03T18:50:41.985142\",\r\n    \"sexo\": \"Masculino\",\r\n    \"paralimpico\": \"Nao\",\r\n    \"id_prova\": \"2\",\r\n    \"evento\": \"Copa 10\",\r\n    \"tipo_bateria\": \"Bateria 10\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -750,7 +734,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/competicoes/35",
+							"raw": "http://127.0.0.1:5000/competicoes/38",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -761,9 +745,10 @@
 							"port": "5000",
 							"path": [
 								"competicoes",
-								"35"
+								"38"
 							]
-						}
+						},
+						"description": "Requisição para alterar uma competição.  \nÉ obrigatório passar o id da competição como parâmetro e os seguintes dados no corpo: * Somente o campo **data_final** não é obrigatório\n\nnome = String(150)  \ndata_inicio = DateTime  \n**data_final = DateTime)**  \nsexo = Enum(\"Masculino\", \"Feminino\"))  \nparalimpico = Enum(\"Sim\", \"Nao\"))  \nid_prova = Integer  \nevento = String(150)  \ntipo_bateria = String(150)\n\nA resposta será um JSON com os dados da competição e suas relações.\n\n``` json\n{\n    \"id\": 35,\n    \"nome\": \"Natação 400m livres\",\n    \"data_inicio\": \"\\\"2022-05-03 18:50:42\\\"\",\n    \"data_final\": \"\\\"2022-05-03T18:50:42\\\"\",\n    \"sexo\": \"Masculino\",\n    \"paralimpico\": \"Nao\",\n    \"id_prova\": 2,\n    \"evento\": \"Copa 10\",\n    \"tipo_bateria\": \"Bateria 10\",\n    \"competicoes_atletas\": []\n}\n\n```\n\nCaso a competição não exista será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"Competição '38' não encontrada.\"\n}\n\n```"
 					},
 					"response": []
 				},
@@ -788,7 +773,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/competicoes/4",
+							"raw": "http://127.0.0.1:5000/competicoes/35",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -799,13 +784,15 @@
 							"port": "5000",
 							"path": [
 								"competicoes",
-								"4"
+								"35"
 							]
-						}
+						},
+						"description": "Requisição para deletar uma competição.  \nÉ obrigatório passar o id da competição como parâmetro.  \nA resposta será um JSON informando que a competição foi deletada.\n\n``` json\n{\n    \"message\": \"Competição '35' deletada.\"\n}\n\n```\n\nCaso a competição não exista será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"Competição '35' não encontrada.\"\n}\n\n```"
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Requisições CRUD para as competições."
 		},
 		{
 			"name": "Competicao_Atleta",
@@ -846,7 +833,8 @@
 							"path": [
 								"competicoes_atletas"
 							]
-						}
+						},
+						"description": "Requisição para retornar o relacionamento de todas as competições e os atletas participantes e os seus resultados.  \nNão é necessário passar nenhum parâmetro.  \nA resposta será um JSON com todos os relacionamentos cadastrados e os resultados.\n\n``` json\n{\n    \"competicoes_atletas\": [\n        {\n            \"id\": 1,\n            \"id_competicao\": 1,\n            \"id_atleta\": 1,\n            \"resultado_1\": 12.385,\n            \"resultado_2\": null,\n            \"resultado_3\": null\n        },\n        {\n            \"id\": 2,\n            \"id_competicao\": 1,\n            \"id_atleta\": 2,\n            \"resultado_1\": 12.485,\n            \"resultado_2\": null,\n            \"resultado_3\": null\n        },\n        {\n            \"id\": 3,\n            \"id_competicao\": 1,\n            \"id_atleta\": 3,\n            \"resultado_1\": 12.685,\n            \"resultado_2\": null,\n            \"resultado_3\": null\n        },\n        {\n            \"id\": 136,\n            \"id_competicao\": 26,\n            \"id_atleta\": 98,\n            \"resultado_1\": 74.58,\n            \"resultado_2\": 0.0,\n            \"resultado_3\": 74.16\n        },\n        {\n            \"id\": 137,\n            \"id_competicao\": 27,\n            \"id_atleta\": 84,\n            \"resultado_1\": 71.08,\n            \"resultado_2\": 71.73,\n            \"resultado_3\": 72.72\n        },\n        {\n            \"id\": 138,\n            \"id_competicao\": 27,\n            \"id_atleta\": 85,\n            \"resultado_1\": 69.27,\n            \"resultado_2\": 68.96,\n            \"resultado_3\": 74.93\n        }\n    ]\n}\n\n```"
 					},
 					"response": []
 				},
@@ -875,7 +863,8 @@
 								"competicoes_atletas",
 								"1"
 							]
-						}
+						},
+						"description": "Requisição para retornar um relacionamento específico competição/atleta e os seus resultados.  \nÉ obrigatório passar o id do relacionamento como parâmetro.  \nA resposta será um JSON com os dados do relacionamento cadastrado e os resultados.\n\n``` json\n{\n    \"id\": 1,\n    \"id_competicao\": 1,\n    \"id_atleta\": 1,\n    \"resultado_1\": 12.385,\n    \"resultado_2\": null,\n    \"resultado_3\": null\n}\n\n```\n\n``` json\n{\n    \"id\": 135,\n    \"id_competicao\": 26,\n    \"id_atleta\": 96,\n    \"resultado_1\": 73.96,\n    \"resultado_2\": 0.0,\n    \"resultado_3\": 71.82\n}\n\n```\n\nCaso o relacionamento solicitado não exista será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"Associação Competição-Atleta '200' não encontrada.\"\n}\n\n```"
 					},
 					"response": []
 				},
@@ -913,7 +902,8 @@
 								"competicoes_atletas",
 								"cadastro"
 							]
-						}
+						},
+						"description": "Requisição para cadastrar um relacionamento competição/atleta e os seus resultados.  \nOs campos a serem informados são: * Os campos resultado_2 e resultado_3 não são obrigatórios. Caso não sejam informados terão o valor Null.\n\nO campo resultado_1 é usado para a prova de 100m Rasos. Para a prova de Lançamento de Dardo os 3 campos são usados.\n\nid_competicao = Integer  \nid_atleta = Integer  \nresultado_1 = Float  \nresultado_2 = Float  \nresultado_3 = Float\n\nA resposta será um JSON com os dados do relacionamento competição/atleta e os seus resultados.\n\n``` json\n{\n    \"id\": 140,\n    \"id_competicao\": 2,\n    \"id_atleta\": 3,\n    \"resultado_1\": 13.485,\n    \"resultado_2\": 13.875,\n    \"resultado_3\": 13.058\n}\n\n```\n\n``` json\n{\n    \"id\": 141,\n    \"id_competicao\": 2,\n    \"id_atleta\": 4,\n    \"resultado_1\": 13.485,\n    \"resultado_2\": null,\n    \"resultado_3\": null\n}\n\n```\n\nCaso já exista um relacionamento será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"A competicao_atleta '2 e 3' já existe.\"\n}\n\n```"
 					},
 					"response": []
 				},
@@ -930,7 +920,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_competicao\": \"1\",\r\n    \"id_atleta\": \"1\",\r\n    \"resultado_1\": \"10.485\",\r\n    \"resultado_2\": 10.875,\r\n    \"resultado_3\": 10.058\r\n}",
+							"raw": "{\r\n    \"id_competicao\": \"34\",\r\n    \"id_atleta\": \"3\",\r\n    \"resultado_1\": \"10.485\",\r\n    \"resultado_2\": 10.875,\r\n    \"resultado_3\": 10.058\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -938,7 +928,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/competicoes_atletas/1",
+							"raw": "http://127.0.0.1:5000/competicoes_atletas/140",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -949,9 +939,10 @@
 							"port": "5000",
 							"path": [
 								"competicoes_atletas",
-								"1"
+								"140"
 							]
-						}
+						},
+						"description": "Requisição para alterar um relacionamento competição/atleta e os seus resultados.  \nOs campos a serem informados são: * Os campos resultado_2 e resultado_3 não são obrigatórios. Caso não sejam informados terão o valor Null.\n\nO campo resultado_1 é usado para a prova de 100m Rasos. Para a prova de Lançamento de Dardo os 3 campos são usados.\n\nid_competicao = Integer  \nid_atleta = Integer  \nresultado_1 = Float  \nresultado_2 = Float  \nresultado_3 = Float\n\n** Somente será possível alterar/incluir resultados se a competição não estiver terminada, ou seja, com o campo data_final = null\n\n``` json\n{\n    \"message\": \"A competição '2' já está encerrada.\"\n}\n\n```\n\nA resposta será um JSON com os dados do relacionamento competição/atleta e os seus resultados.\n\n``` json\n{\n    \"id\": 140,\n    \"id_competicao\": 34,\n    \"id_atleta\": 3,\n    \"resultado_1\": 10.485,\n    \"resultado_2\": 10.875,\n    \"resultado_3\": 10.058\n}\n\n```\n\nCaso o relacionamento não exista será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"Relacionamento '145' não encontrado.\"\n}\n\n```"
 					},
 					"response": []
 				},
@@ -989,11 +980,13 @@
 								"competicoes_atletas",
 								"7"
 							]
-						}
+						},
+						"description": "Requisição para deletar um relacionamento.  \nÉ obrigatório passar o id do relacionamento como parâmetro.  \nA resposta será um JSON informando que o relacionamento foi deletado.\n\n``` json\n{\n    \"message\": \"Associação Competição-Atleta '140' deletada.\"\n}\n\n```\n\nCaso o relacionamento não exista será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"Associação Competição-Atleta '140' não encontrada.\"\n}\n\n```"
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Requisições CRUD para criar o relacionamento entre as competições e os atletas e informar os resultados."
 		},
 		{
 			"name": "Atleta_Prova",
@@ -1034,7 +1027,8 @@
 							"path": [
 								"atletas_provas"
 							]
-						}
+						},
+						"description": "Requisição para retornar o relacionamento de todas as provas e os atletas associados.  \nNão é necessário passar nenhum parâmetro.  \nA resposta será um JSON com todos os relacionamentos cadastrados.\n\n``` json\n{\n    \"atletas_provas\": [\n        {\n            \"id\": 1,\n            \"id_atleta\": 1,\n            \"id_prova\": 1\n        },\n        {\n            \"id\": 2,\n            \"id_atleta\": 2,\n            \"id_prova\": 1\n        }\n    ]\n}\n\n```"
 					},
 					"response": []
 				},
@@ -1063,7 +1057,8 @@
 								"atletas_provas",
 								"1"
 							]
-						}
+						},
+						"description": "Requisição para retornar um relacionamento específico atleta/prova.  \nÉ obrigatório passar o id do relacionamento como parâmetro.  \nA resposta será um JSON com os dados do relacionamento cadastrado.\n\n``` json\n{\n    \"id\": 1,\n    \"id_atleta\": 1,\n    \"id_prova\": 1\n}\n\n```\n\nCaso o relacionamento solicitado não exista será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"Associação Atleta-Prova '100' não encontrada.\"\n}\n\n```"
 					},
 					"response": []
 				},
@@ -1101,7 +1096,8 @@
 								"atletas_provas",
 								"cadastro"
 							]
-						}
+						},
+						"description": "Requisição para cadastrar um relacionamento atleta/prova.  \nOs campos a serem informados são: *Todos os campos são obrigatórios\n\nid_atleta = Integer  \nid_prova = Integer\n\nA resposta será um JSON com os dados do relacionamento atleta/prova.\n\n``` json\n{\n    \"id\": 81,\n    \"id_atleta\": 3,\n    \"id_prova\": 2\n}\n\n```\n\nCaso já exista um relacionamento será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"A associação atleta_prova '3 e 2' já existe.\"\n}\n\n```"
 					},
 					"response": []
 				},
@@ -1118,7 +1114,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_atleta\": \"4\",\r\n    \"id_prova\": \"2\"\r\n}",
+							"raw": "{\r\n    \"id_atleta\": \"3\",\r\n    \"id_prova\": \"2\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1126,7 +1122,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/atletas_provas/1",
+							"raw": "http://127.0.0.1:5000/atletas_provas/81",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1137,9 +1133,10 @@
 							"port": "5000",
 							"path": [
 								"atletas_provas",
-								"1"
+								"81"
 							]
-						}
+						},
+						"description": "Requisição para alterar um relacionamento atleta/prova.  \nOs campos a serem informados são: *Todos os campos são obrigatórios\n\nid_atleta = Integer  \nid_prova = Integer\n\nA resposta será um JSON com os dados do relacionamento atleta/prova.\n\n``` json\n{\n    \"id\": 81,\n    \"id_atleta\": 3,\n    \"id_prova\": 2\n}\n\n```\n\nCaso o relacionamento não exista será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"Associação Atleta-Prova '100' não encontrada.\"\n}\n\n```"
 					},
 					"response": []
 				},
@@ -1164,7 +1161,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/atletas_provas/1",
+							"raw": "http://127.0.0.1:5000/atletas_provas/81",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1175,13 +1172,15 @@
 							"port": "5000",
 							"path": [
 								"atletas_provas",
-								"1"
+								"81"
 							]
-						}
+						},
+						"description": "Requisição para deletar um relacionamento.  \nÉ obrigatório passar o id do relacionamento como parâmetro.  \nA resposta será um JSON informando que o relacionamento foi deletado.\n\n``` json\n{\n    \"message\": \"Associação Atleta-Prova '81' deletada.\"\n}\n\n```\n\nCaso o relacionamento não exista será retornada uma mensagem.\n\n``` json\n{\n    \"message\": \"Associação Atleta-Prova '81' não encontrada.\"\n}\n\n```"
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Requisições CRUD para criar o relacionamento entre os atletas e as provas."
 		},
 		{
 			"name": "Consultas",
@@ -1238,7 +1237,8 @@
 									"value": "sim"
 								}
 							]
-						}
+						},
+						"description": "Requisição para retornar dados de atletas baseados nos parâmetros de consulta passados.  \nOs parâmetros que podem ser passados são:\n\nid = Integer  \nnome = String(150)  \npais = String(100)  \nsexo = Enum(\"Masculino\", \"Feminino\")  \nparalimpico = Enum(\"Sim\", \"Nao\")\n\nOs parâmetros podem ser combinados com o '&'\n\nExemplos:\n\n/consultas/atletas?id=2\n\n``` json\n{\n    \"atletas\": [\n        {\n            \"id\": 2,\n            \"nome\": \"Fuller George\",\n            \"pais\": \"Cuba\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\"\n        }\n    ]\n}\n\n```\n\n/consultas/atletas?nome=Amal Leblanc\n\n``` json\n{\n    \"atletas\": [\n        {\n            \"id\": 1,\n            \"nome\": \"Amal Leblanc\",\n            \"pais\": \"Brasil\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\"\n        }\n    ]\n}\n\n```\n\n/consultas/atletas?pais=Brasil&sexo=masculino&paralimpico=sim\n\n``` json\n{\n    \"atletas\": [\n        {\n            \"id\": 71,\n            \"nome\": \"Colby Mcclure\",\n            \"pais\": \"Brasil\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Sim\"\n        },\n        {\n            \"id\": 79,\n            \"nome\": \"Keaton Hurst\",\n            \"pais\": \"Brasil\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Sim\"\n        },\n        {\n            \"id\": 83,\n            \"nome\": \"Kibo Barrera\",\n            \"pais\": \"Brasil\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Sim\"\n        },\n        {\n            \"id\": 85,\n            \"nome\": \"Fulton Nguyen\",\n            \"pais\": \"Brasil\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Sim\"\n        }\n    ]\n}\n\n```\n\nCaso seja passado algum valor incorreto, ou nenhum registro seja encontrado, será retornada uma lista vazia.\n\n``` json\n{\n    \"atletas\": []\n}\n\n```"
 					},
 					"response": []
 				},
@@ -1294,7 +1294,8 @@
 									"value": "Final"
 								}
 							]
-						}
+						},
+						"description": "Requisição para retornar os resultados das competições, sendo eles finais ou parciais, baseados nos parâmetros de consulta passados.  \nOs parâmetros que podem ser passados são:\n\nevento = String(150)  \nid_prova = Integer  \nbateria = String(150)  \nid_competicao = Integer  \nsexo = Enum(\"Masculino\", \"Feminino\")  \nparalimpico = Enum(\"Sim\", \"Nao\")\n\nOs parâmetros podem ser combinados com o '&'\n\nExemplos:\n\n/consultas/resultados?evento=Copa 2\n\n``` json\n{\n    \"resultados\": [\n        {\n            \"evento\": \"Copa 2\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 27,\n            \"competicao\": \"100m rasos - Masculino - Eliminatórias\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\",\n            \"bateria\": \"Bateria 1\",\n            \"data_inicio\": \"\\\"2022-04-03 09:27:38\\\"\",\n            \"data_final\": \"null\",\n            \"id_atleta\": 84,\n            \"atleta\": \"Brody Burt\",\n            \"pais\": \"Alemanha\",\n            \"resultado_1\": 71.08,\n            \"resultado_2\": 71.73,\n            \"resultado_3\": 72.72,\n            \"melhor_resultado\": 72.72\n        },\n        {\n            \"evento\": \"Copa 2\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 27,\n            \"competicao\": \"100m rasos - Masculino - Eliminatórias\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\",\n            \"bateria\": \"Bateria 1\",\n            \"data_inicio\": \"\\\"2022-04-03 09:27:38\\\"\",\n            \"data_final\": \"null\",\n            \"id_atleta\": 85,\n            \"atleta\": \"Fulton Nguyen\",\n            \"pais\": \"Brasil\",\n            \"resultado_1\": 69.27,\n            \"resultado_2\": 68.96,\n            \"resultado_3\": 74.93,\n            \"melhor_resultado\": 74.93\n        }\n    ]\n}\n\n```\n\n/consultas/resultados?evento=Copa 1&id_prova=1\n\n``` json\n{\n    \"resultados\": [\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 1,\n            \"competicao\": \"100m rasos - Masculino\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\",\n            \"bateria\": \"Bateria 1\",\n            \"data_inicio\": \"\\\"2022-03-21 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-21 11:18:48\\\"\",\n            \"id_atleta\": 1,\n            \"atleta\": \"Amal Leblanc\",\n            \"pais\": \"Brasil\",\n            \"resultado_1\": 12.385,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"melhor_resultado\": 12.385\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 1,\n            \"competicao\": \"100m rasos - Masculino\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\",\n            \"bateria\": \"Bateria 1\",\n            \"data_inicio\": \"\\\"2022-03-21 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-21 11:18:48\\\"\",\n            \"id_atleta\": 4,\n            \"atleta\": \"Caleb Gilbert\",\n            \"pais\": \"Brasil\",\n            \"resultado_1\": 11.785,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"melhor_resultado\": 11.785\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 2,\n            \"competicao\": \"100m rasos - Masculino\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\",\n            \"bateria\": \"Bateria 2\",\n            \"data_inicio\": \"\\\"2022-03-21 11:20:28\\\"\",\n            \"data_final\": \"\\\"2022-03-21 12:30:48\\\"\",\n            \"id_atleta\": 6,\n            \"atleta\": \"Evan Carver\",\n            \"pais\": \"Franca\",\n            \"resultado_1\": 12.38,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"melhor_resultado\": 12.38\n        }\n    ]\n}\n\n```\n\n/consultas/resultados?evento=Copa 1&id_prova=2&bateria=Final\n\n``` json\n{\n    \"resultados\": [\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 20,\n            \"competicao\": \"Lançamento de Dardo - Masculino\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-25 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-25 18:18:48\\\"\",\n            \"id_atleta\": 16,\n            \"atleta\": \"Hashim Mitchell\",\n            \"pais\": \"Brasil\",\n            \"resultado_1\": 0.0,\n            \"resultado_2\": 85.44,\n            \"resultado_3\": 84.98,\n            \"melhor_resultado\": 85.44\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 20,\n            \"competicao\": \"Lançamento de Dardo - Masculino\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-25 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-25 18:18:48\\\"\",\n            \"id_atleta\": 17,\n            \"atleta\": \"Dustin Higgins\",\n            \"pais\": \"Portugal\",\n            \"resultado_1\": 83.98,\n            \"resultado_2\": 82.86,\n            \"resultado_3\": 86.67,\n            \"melhor_resultado\": 86.67\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 20,\n            \"competicao\": \"Lançamento de Dardo - Masculino\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-25 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-25 18:18:48\\\"\",\n            \"id_atleta\": 18,\n            \"atleta\": \"Kibo Dennis\",\n            \"pais\": \"Italia\",\n            \"resultado_1\": 83.71,\n            \"resultado_2\": 79.24,\n            \"resultado_3\": 2.0,\n            \"melhor_resultado\": 83.71\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 20,\n            \"competicao\": \"Lançamento de Dardo - Masculino\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-25 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-25 18:18:48\\\"\",\n            \"id_atleta\": 21,\n            \"atleta\": \"Coby Luna\",\n            \"pais\": \"Brasil\",\n            \"resultado_1\": 83.1,\n            \"resultado_2\": 85.15,\n            \"resultado_3\": 75.72,\n            \"melhor_resultado\": 85.15\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 20,\n            \"competicao\": \"Lançamento de Dardo - Masculino\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-25 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-25 18:18:48\\\"\",\n            \"id_atleta\": 22,\n            \"atleta\": \"Acton Salas\",\n            \"pais\": \"Portugal\",\n            \"resultado_1\": 87.03,\n            \"resultado_2\": 87.58,\n            \"resultado_3\": 76.79,\n            \"melhor_resultado\": 87.58\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 22,\n            \"competicao\": \"Lançamento de Dardo - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Nao\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-26 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 18:18:48\\\"\",\n            \"id_atleta\": 51,\n            \"atleta\": \"Callie Branch\",\n            \"pais\": \"Jamaica\",\n            \"resultado_1\": 78.27,\n            \"resultado_2\": 78.96,\n            \"resultado_3\": 83.93,\n            \"melhor_resultado\": 83.93\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 22,\n            \"competicao\": \"Lançamento de Dardo - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Nao\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-26 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 18:18:48\\\"\",\n            \"id_atleta\": 52,\n            \"atleta\": \"Claire Bullock\",\n            \"pais\": \"Italia\",\n            \"resultado_1\": 81.08,\n            \"resultado_2\": 81.73,\n            \"resultado_3\": 79.72,\n            \"melhor_resultado\": 81.73\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 22,\n            \"competicao\": \"Lançamento de Dardo - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Nao\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-26 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 18:18:48\\\"\",\n            \"id_atleta\": 53,\n            \"atleta\": \"Hedda Boone\",\n            \"pais\": \"Jamaica\",\n            \"resultado_1\": 79.2,\n            \"resultado_2\": 0.0,\n            \"resultado_3\": 80.89,\n            \"melhor_resultado\": 80.89\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 22,\n            \"competicao\": \"Lançamento de Dardo - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Nao\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-26 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 18:18:48\\\"\",\n            \"id_atleta\": 56,\n            \"atleta\": \"Leslie Mcclure\",\n            \"pais\": \"Brasil\",\n            \"resultado_1\": 79.13,\n            \"resultado_2\": 80.13,\n            \"resultado_3\": 78.33,\n            \"melhor_resultado\": 80.13\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 22,\n            \"competicao\": \"Lançamento de Dardo - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Nao\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-26 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 18:18:48\\\"\",\n            \"id_atleta\": 57,\n            \"atleta\": \"Kameko Bailey\",\n            \"pais\": \"Brasil\",\n            \"resultado_1\": 72.56,\n            \"resultado_2\": 75.39,\n            \"resultado_3\": 78.07,\n            \"melhor_resultado\": 78.07\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 24,\n            \"competicao\": \"Paralimpica - Lançamento de Dardo - Masculino\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-29 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-29 18:18:48\\\"\",\n            \"id_atleta\": 81,\n            \"atleta\": \"Micah Cook\",\n            \"pais\": \"Espanha\",\n            \"resultado_1\": 75.22,\n            \"resultado_2\": 74.86,\n            \"resultado_3\": 69.41,\n            \"melhor_resultado\": 75.22\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 24,\n            \"competicao\": \"Paralimpica - Lançamento de Dardo - Masculino\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-29 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-29 18:18:48\\\"\",\n            \"id_atleta\": 82,\n            \"atleta\": \"Justin Stein\",\n            \"pais\": \"China\",\n            \"resultado_1\": 72.08,\n            \"resultado_2\": 73.73,\n            \"resultado_3\": 0.0,\n            \"melhor_resultado\": 73.73\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 24,\n            \"competicao\": \"Paralimpica - Lançamento de Dardo - Masculino\",\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-29 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-29 18:18:48\\\"\",\n            \"id_atleta\": 83,\n            \"atleta\": \"Kibo Barrera\",\n            \"pais\": \"Brasil\",\n            \"resultado_1\": 74.64,\n            \"resultado_2\": 0.0,\n            \"resultado_3\": 75.01,\n            \"melhor_resultado\": 75.01\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 26,\n            \"competicao\": \"Paralimpica - Lançamento de Dardo - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-29 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-29 18:18:48\\\"\",\n            \"id_atleta\": 96,\n            \"atleta\": \"Pamela Flores\",\n            \"pais\": \"Cuba\",\n            \"resultado_1\": 73.96,\n            \"resultado_2\": 0.0,\n            \"resultado_3\": 71.82,\n            \"melhor_resultado\": 73.96\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 26,\n            \"competicao\": \"Paralimpica - Lançamento de Dardo - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-29 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-29 18:18:48\\\"\",\n            \"id_atleta\": 97,\n            \"atleta\": \"Quin Briggs\",\n            \"pais\": \"Canada\",\n            \"resultado_1\": 72.23,\n            \"resultado_2\": 70.96,\n            \"resultado_3\": 73.93,\n            \"melhor_resultado\": 73.93\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 26,\n            \"competicao\": \"Paralimpica - Lançamento de Dardo - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-29 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-29 18:18:48\\\"\",\n            \"id_atleta\": 98,\n            \"atleta\": \"Simone Austin\",\n            \"pais\": \"Estados Unidos\",\n            \"resultado_1\": 74.58,\n            \"resultado_2\": 0.0,\n            \"resultado_3\": 74.16,\n            \"melhor_resultado\": 74.58\n        }\n    ]\n}\n\n```\n\n/consultas/resultados?sexo=Feminino&paralimpico=Sim\n\n``` json\n{\n    \"resultados\": [\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 16,\n            \"competicao\": \"Paralimpica - 100m rasos - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Semifinal 1\",\n            \"data_inicio\": \"\\\"2022-03-26 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 11:18:48\\\"\",\n            \"id_atleta\": 86,\n            \"atleta\": \"Karen Luz\",\n            \"pais\": \"Brasil\",\n            \"resultado_1\": 14.029,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"melhor_resultado\": 14.029\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 16,\n            \"competicao\": \"Paralimpica - 100m rasos - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Semifinal 1\",\n            \"data_inicio\": \"\\\"2022-03-26 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 11:18:48\\\"\",\n            \"id_atleta\": 87,\n            \"atleta\": \"Jennifer Arnold\",\n            \"pais\": \"Jamaica\",\n            \"resultado_1\": 14.668,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"melhor_resultado\": 14.668\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 16,\n            \"competicao\": \"Paralimpica - 100m rasos - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Semifinal 1\",\n            \"data_inicio\": \"\\\"2022-03-26 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 11:18:48\\\"\",\n            \"id_atleta\": 88,\n            \"atleta\": \"Darrel Colon\",\n            \"pais\": \"Estados Unidos\",\n            \"resultado_1\": 15.285,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"melhor_resultado\": 15.285\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 16,\n            \"competicao\": \"Paralimpica - 100m rasos - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Semifinal 1\",\n            \"data_inicio\": \"\\\"2022-03-26 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 11:18:48\\\"\",\n            \"id_atleta\": 89,\n            \"atleta\": \"Tara Shepherd\",\n            \"pais\": \"Brasil\",\n            \"resultado_1\": 15.199,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"melhor_resultado\": 15.199\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 16,\n            \"competicao\": \"Paralimpica - 100m rasos - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Semifinal 1\",\n            \"data_inicio\": \"\\\"2022-03-26 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 11:18:48\\\"\",\n            \"id_atleta\": 90,\n            \"atleta\": \"TaShya Jimenez\",\n            \"pais\": \"Estados Unidos\",\n            \"resultado_1\": 16.011,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"melhor_resultado\": 16.011\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 17,\n            \"competicao\": \"Paralimpica - 100m rasos - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Semifinal 2\",\n            \"data_inicio\": \"\\\"2022-03-26 12:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 13:18:48\\\"\",\n            \"id_atleta\": 91,\n            \"atleta\": \"Simone Rivera\",\n            \"pais\": \"China\",\n            \"resultado_1\": 14.029,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"melhor_resultado\": 14.029\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 17,\n            \"competicao\": \"Paralimpica - 100m rasos - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Semifinal 2\",\n            \"data_inicio\": \"\\\"2022-03-26 12:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 13:18:48\\\"\",\n            \"id_atleta\": 92,\n            \"atleta\": \"Leilani Buckner\",\n            \"pais\": \"China\",\n            \"resultado_1\": 14.668,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"melhor_resultado\": 14.668\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 17,\n            \"competicao\": \"Paralimpica - 100m rasos - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Semifinal 2\",\n            \"data_inicio\": \"\\\"2022-03-26 12:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 13:18:48\\\"\",\n            \"id_atleta\": 93,\n            \"atleta\": \"Lenore Decker\",\n            \"pais\": \"Cuba\",\n            \"resultado_1\": 15.285,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"melhor_resultado\": 15.285\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 17,\n            \"competicao\": \"Paralimpica - 100m rasos - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Semifinal 2\",\n            \"data_inicio\": \"\\\"2022-03-26 12:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 13:18:48\\\"\",\n            \"id_atleta\": 94,\n            \"atleta\": \"Idona Hendrix\",\n            \"pais\": \"Australia\",\n            \"resultado_1\": 15.199,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"melhor_resultado\": 15.199\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 17,\n            \"competicao\": \"Paralimpica - 100m rasos - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Semifinal 2\",\n            \"data_inicio\": \"\\\"2022-03-26 12:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 13:18:48\\\"\",\n            \"id_atleta\": 95,\n            \"atleta\": \"September Gordon\",\n            \"pais\": \"Italia\",\n            \"resultado_1\": 16.011,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"melhor_resultado\": 16.011\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 18,\n            \"competicao\": \"Paralimpica - 100m rasos - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-26 16:20:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 18:30:48\\\"\",\n            \"id_atleta\": 86,\n            \"atleta\": \"Karen Luz\",\n            \"pais\": \"Brasil\",\n            \"resultado_1\": 13.229,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"melhor_resultado\": 13.229\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 18,\n            \"competicao\": \"Paralimpica - 100m rasos - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-26 16:20:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 18:30:48\\\"\",\n            \"id_atleta\": 87,\n            \"atleta\": \"Jennifer Arnold\",\n            \"pais\": \"Jamaica\",\n            \"resultado_1\": 13.285,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"melhor_resultado\": 13.285\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 18,\n            \"competicao\": \"Paralimpica - 100m rasos - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-26 16:20:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 18:30:48\\\"\",\n            \"id_atleta\": 89,\n            \"atleta\": \"Tara Shepherd\",\n            \"pais\": \"Brasil\",\n            \"resultado_1\": 14.011,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"melhor_resultado\": 14.011\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 18,\n            \"competicao\": \"Paralimpica - 100m rasos - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-26 16:20:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 18:30:48\\\"\",\n            \"id_atleta\": 91,\n            \"atleta\": \"Simone Rivera\",\n            \"pais\": \"China\",\n            \"resultado_1\": 12.668,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"melhor_resultado\": 12.668\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 1,\n            \"prova\": \"100m rasos\",\n            \"unidade_medida\": \"s\",\n            \"id_competicao\": 18,\n            \"competicao\": \"Paralimpica - 100m rasos - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-26 16:20:28\\\"\",\n            \"data_final\": \"\\\"2022-03-26 18:30:48\\\"\",\n            \"id_atleta\": 92,\n            \"atleta\": \"Leilani Buckner\",\n            \"pais\": \"China\",\n            \"resultado_1\": 13.199,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"melhor_resultado\": 13.199\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 25,\n            \"competicao\": \"Paralimpica - Lançamento de Dardo - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Qualificação\",\n            \"data_inicio\": \"\\\"2022-03-28 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-28 18:18:48\\\"\",\n            \"id_atleta\": 96,\n            \"atleta\": \"Pamela Flores\",\n            \"pais\": \"Cuba\",\n            \"resultado_1\": 70.08,\n            \"resultado_2\": 70.73,\n            \"resultado_3\": 70.72,\n            \"melhor_resultado\": 70.73\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 25,\n            \"competicao\": \"Paralimpica - Lançamento de Dardo - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Qualificação\",\n            \"data_inicio\": \"\\\"2022-03-28 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-28 18:18:48\\\"\",\n            \"id_atleta\": 97,\n            \"atleta\": \"Quin Briggs\",\n            \"pais\": \"Canada\",\n            \"resultado_1\": 68.27,\n            \"resultado_2\": 65.96,\n            \"resultado_3\": 72.93,\n            \"melhor_resultado\": 72.93\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 25,\n            \"competicao\": \"Paralimpica - Lançamento de Dardo - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Qualificação\",\n            \"data_inicio\": \"\\\"2022-03-28 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-28 18:18:48\\\"\",\n            \"id_atleta\": 98,\n            \"atleta\": \"Simone Austin\",\n            \"pais\": \"Estados Unidos\",\n            \"resultado_1\": 65.13,\n            \"resultado_2\": 66.13,\n            \"resultado_3\": 65.33,\n            \"melhor_resultado\": 66.13\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 25,\n            \"competicao\": \"Paralimpica - Lançamento de Dardo - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Qualificação\",\n            \"data_inicio\": \"\\\"2022-03-28 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-28 18:18:48\\\"\",\n            \"id_atleta\": 99,\n            \"atleta\": \"Victoria Wynn\",\n            \"pais\": \"Estados Unidos\",\n            \"resultado_1\": 61.56,\n            \"resultado_2\": 63.39,\n            \"resultado_3\": 66.07,\n            \"melhor_resultado\": 66.07\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 25,\n            \"competicao\": \"Paralimpica - Lançamento de Dardo - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Qualificação\",\n            \"data_inicio\": \"\\\"2022-03-28 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-28 18:18:48\\\"\",\n            \"id_atleta\": 100,\n            \"atleta\": \"Wyoming Richardson\",\n            \"pais\": \"Jamaica\",\n            \"resultado_1\": 64.2,\n            \"resultado_2\": 64.09,\n            \"resultado_3\": 64.89,\n            \"melhor_resultado\": 64.89\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 26,\n            \"competicao\": \"Paralimpica - Lançamento de Dardo - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-29 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-29 18:18:48\\\"\",\n            \"id_atleta\": 96,\n            \"atleta\": \"Pamela Flores\",\n            \"pais\": \"Cuba\",\n            \"resultado_1\": 73.96,\n            \"resultado_2\": 0.0,\n            \"resultado_3\": 71.82,\n            \"melhor_resultado\": 73.96\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 26,\n            \"competicao\": \"Paralimpica - Lançamento de Dardo - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-29 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-29 18:18:48\\\"\",\n            \"id_atleta\": 97,\n            \"atleta\": \"Quin Briggs\",\n            \"pais\": \"Canada\",\n            \"resultado_1\": 72.23,\n            \"resultado_2\": 70.96,\n            \"resultado_3\": 73.93,\n            \"melhor_resultado\": 73.93\n        },\n        {\n            \"evento\": \"Copa 1\",\n            \"id_prova\": 2,\n            \"prova\": \"Lançamento de Dardo\",\n            \"unidade_medida\": \"m\",\n            \"id_competicao\": 26,\n            \"competicao\": \"Paralimpica - Lançamento de Dardo - Feminino\",\n            \"sexo\": \"Feminino\",\n            \"paralimpico\": \"Sim\",\n            \"bateria\": \"Final\",\n            \"data_inicio\": \"\\\"2022-03-29 10:15:28\\\"\",\n            \"data_final\": \"\\\"2022-03-29 18:18:48\\\"\",\n            \"id_atleta\": 98,\n            \"atleta\": \"Simone Austin\",\n            \"pais\": \"Estados Unidos\",\n            \"resultado_1\": 74.58,\n            \"resultado_2\": 0.0,\n            \"resultado_3\": 74.16,\n            \"melhor_resultado\": 74.58\n        }\n    ]\n}\n\n```\n\nCaso seja passado algum valor incorreto, ou nenhum registro seja encontrado, será retornada uma lista vazia.\n\n``` json\n{\n    \"resultados\": []\n}\n\n```"
 					},
 					"response": []
 				},
@@ -1342,7 +1343,8 @@
 									"value": "20"
 								}
 							]
-						}
+						},
+						"description": "Requisição para retornar o ranking das competições, sendo eles finais ou parciais, baseados nos parâmetros de consulta passados.  \nO parâmetro que pode ser passado é:\n\nid_competicao = Integer\n\nExemplos:\n\n/consultas/ranking?id_competicao=6\n\n``` json\n{\n    \"ranking\": [\n        {\n            \"posicao\": 1,\n            \"id_atleta\": 10,\n            \"nome\": \"Laith Lynch\",\n            \"pais\": \"Estados Unidos\",\n            \"melhor_resultado\": 9.999,\n            \"resultado_1\": 9.999,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\"\n        },\n        {\n            \"posicao\": 2,\n            \"id_atleta\": 4,\n            \"nome\": \"Caleb Gilbert\",\n            \"pais\": \"Brasil\",\n            \"melhor_resultado\": 10.045,\n            \"resultado_1\": 10.045,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\"\n        },\n        {\n            \"posicao\": 3,\n            \"id_atleta\": 11,\n            \"nome\": \"Guy Conrad\",\n            \"pais\": \"Australia\",\n            \"melhor_resultado\": 10.09,\n            \"resultado_1\": 10.09,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\"\n        },\n        {\n            \"posicao\": 4,\n            \"id_atleta\": 15,\n            \"nome\": \"Zachery Espinoza\",\n            \"pais\": \"Cuba\",\n            \"melhor_resultado\": 10.245,\n            \"resultado_1\": 10.245,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\"\n        },\n        {\n            \"posicao\": 5,\n            \"id_atleta\": 6,\n            \"nome\": \"Evan Carver\",\n            \"pais\": \"Franca\",\n            \"melhor_resultado\": 10.44,\n            \"resultado_1\": 10.44,\n            \"resultado_2\": null,\n            \"resultado_3\": null,\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\"\n        }\n    ]\n}\n\n```\n\n/consultas/ranking?id_competicao=20\n\n``` json\n{\n    \"ranking\": [\n        {\n            \"posicao\": 1,\n            \"id_atleta\": 22,\n            \"nome\": \"Acton Salas\",\n            \"pais\": \"Portugal\",\n            \"melhor_resultado\": 87.58,\n            \"resultado_1\": 87.03,\n            \"resultado_2\": 87.58,\n            \"resultado_3\": 76.79,\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\"\n        },\n        {\n            \"posicao\": 2,\n            \"id_atleta\": 17,\n            \"nome\": \"Dustin Higgins\",\n            \"pais\": \"Portugal\",\n            \"melhor_resultado\": 86.67,\n            \"resultado_1\": 83.98,\n            \"resultado_2\": 82.86,\n            \"resultado_3\": 86.67,\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\"\n        },\n        {\n            \"posicao\": 3,\n            \"id_atleta\": 16,\n            \"nome\": \"Hashim Mitchell\",\n            \"pais\": \"Brasil\",\n            \"melhor_resultado\": 85.44,\n            \"resultado_1\": 0.0,\n            \"resultado_2\": 85.44,\n            \"resultado_3\": 84.98,\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\"\n        },\n        {\n            \"posicao\": 4,\n            \"id_atleta\": 21,\n            \"nome\": \"Coby Luna\",\n            \"pais\": \"Brasil\",\n            \"melhor_resultado\": 85.15,\n            \"resultado_1\": 83.1,\n            \"resultado_2\": 85.15,\n            \"resultado_3\": 75.72,\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\"\n        },\n        {\n            \"posicao\": 5,\n            \"id_atleta\": 18,\n            \"nome\": \"Kibo Dennis\",\n            \"pais\": \"Italia\",\n            \"melhor_resultado\": 83.71,\n            \"resultado_1\": 83.71,\n            \"resultado_2\": 79.24,\n            \"resultado_3\": 2.0,\n            \"sexo\": \"Masculino\",\n            \"paralimpico\": \"Nao\"\n        }\n    ]\n}\n\n```\n\nCaso seja passado algum valor incorreto, ou nenhum registro seja encontrado, será retornada uma lista vazia.\n\n``` json\n{\n    \"ranking\": []\n}\n\n```"
 					},
 					"response": []
 				}
