@@ -1,6 +1,15 @@
 from flask_restful import Resource, reqparse
 import mysql.connector
+import json
+import datetime
 
+# Serializando o tipo datetime pq o json nao aceita datetime
+class DateTimeEncoder(json.JSONEncoder):
+    def default(campo_data):
+        if isinstance(campo_data, datetime.datetime):
+            return (str(campo_data))
+        else:
+            return super().default(campo_data)
 
 # path /resultados?evento=Copa 1&id_prova=1&bateria=Final&sexo=Masculino&paralimpico=Nao
 #recebe os parametros passados na url
@@ -75,6 +84,8 @@ class Consulta_Resultados(Resource):
             'sexo': linha[6],
             'paralimpico': linha[7],
             'bateria': linha[8],
+            'data_inicio': json.dumps(linha[9], default=DateTimeEncoder.default), # Serializando o tipo datetime pq o json nao aceita datetime
+            'data_final': json.dumps(linha[10], default=DateTimeEncoder.default), # Serializando o tipo datetime pq o json nao aceita datetime,
             'id_atleta': linha[11],
             'atleta': linha[12],
             'pais': linha[13],
