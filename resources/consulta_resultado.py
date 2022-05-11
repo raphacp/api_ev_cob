@@ -11,7 +11,7 @@ class DateTimeEncoder(json.JSONEncoder):
         else:
             return super().default(campo_data)
 
-# path /resultados?evento=Copa 1&id_prova=1&bateria=Final&sexo=Masculino&paralimpico=Nao
+# path /consultas/resultados?evento=Copa 1&id_prova=1&bateria=Final&sexo=Masculino&paralimpico=Nao
 #recebe os parametros passados na url
 path_params = reqparse.RequestParser()
 path_params.add_argument('evento',  type=str)
@@ -75,7 +75,7 @@ class Consulta_Resultados(Resource):
         resultados = []
         for linha in resultado:
             resultados.append({
-            'evento': linha[0] ,
+            'evento': linha[0],
             'id_prova': linha[1],
             'prova': linha[2],
             'unidade_medida': linha[3],

@@ -10,6 +10,7 @@ from resources.competicao_atleta import CompeticoesAtletas, CompeticaoAtleta, Co
 from resources.atleta_prova import AtletasProvas, AtletaProva, AtletaProvaCadastro
 from resources.consulta_resultado import Consulta_Resultados
 from resources.consulta_atleta import Consulta_Atletas
+from resources.consulta_ranking import Consulta_Ranking
 import sqlalchemy
 
 # Dados do banco de dados.
@@ -75,6 +76,7 @@ api.add_resource(AtletaProva, '/atletas_provas/<string:id>')
 api.add_resource(AtletaProvaCadastro, '/atletas_provas/cadastro')
 api.add_resource(Consulta_Resultados, '/consultas/resultados')
 api.add_resource(Consulta_Atletas, '/consultas/atletas')
+api.add_resource(Consulta_Ranking, '/consultas/ranking')
 
 if __name__ == '__main__':
     banco.init_app(app)
