@@ -30,3 +30,34 @@ Procedimento de instalação:
 	
 5 - Utilizei o Postman para testar a API.
 	    A coleção está em .\postman\APP_EV_COB.postman_collection.json
+
+
+Utilização do ambiente virtual no Python (virtualenv) com Windows 11 e VSCode
+
+Abrir o VSCode na pasta onde está o projeto. No meu caso é: "C:\Python\api_ev_cob"
+Abrir o terminal do VSCode
+Instalar a biblioteca virtualenv
+	pip install virtualenv
+Criar o ambiente virtual (ambvir é o nome do ambiente virtual que estou criando)
+	C:\Python\api_ev_cob>virtualenv ambvir --python=python3.10
+Ativar o ambiente virtual no Windows:
+	.\ambvir\Scripts\activate.bat
+	Ele entra no ambiente virtual. "(ambvir) C:\Python\api_ev_cob>"
+	
+****************************************************
+Pode ser que o comando .\ambvir\Scripts\activate.bat para ativar o Ambiente Virtual no Windows, não funcione. Caso isso ocorra, utilize o comando: 			
+	\NomeDoAmbienteVirtual\Scripts\activate.ps1
+
+Se tiver problemas de acesso não autorizado, execute: 
+	Set-ExecutionPolicy Unrestricted -Scope Process
+e tente novamente. Esse comando autoriza a execução desse comando apenas no powershell aberto.
+
+Certifique-se de executar esse comando no powershell.
+****************************************************
+	
+Ao digitar pip freeze poderá verificar que o ambiente está "zerado"
+Instalar as bibliotecas necessárias
+	pip install -r requirements.txt
+	
+Executar a aplicação
+	python app.py
